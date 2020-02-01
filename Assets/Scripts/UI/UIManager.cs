@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour, IUIInteractable
     {
         characterSelect.gameObject.SetActive(false);
         currentInteractable = null;
-    }
+    }  
 
     public void Register(PlayerInput playerInput)
     {

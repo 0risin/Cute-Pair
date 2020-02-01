@@ -89,15 +89,14 @@ public class Character2D : MonoBehaviour
         }
     }
 
-
-
-
     private void Start()
     {
+        transform.parent.GetComponent<PassthroughPlayer>().character2D = this;
         pusher = GetComponentInChildren<pushObject>();
         grabbing = false;
         hitStunTimeTimer = 0;
         audioManager = GetComponent<AudioManager>();
+        characterHolder = gameObject;
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
     }
@@ -310,11 +309,11 @@ public class Character2D : MonoBehaviour
 
         Grabbed = null;
     }
-    private void OnMove(InputValue value)
+    public void OnMove(InputValue value)
     {
         direction = value.Get<Vector2>();
     }
-    private void OnAttackSide()
+    public void OnAttackSide()
     {
         if (currentCoolDown <= 0)
         {
@@ -326,7 +325,7 @@ public class Character2D : MonoBehaviour
             audioManager.playPushSound();
         };
     }
-    private void OnAttackUp()
+    public void OnAttackUp()
     {
         if (currentCoolDown <= 0)
         {
@@ -338,7 +337,7 @@ public class Character2D : MonoBehaviour
             audioManager.playPushSound();
         }
     }
-    private void OnAttackDown()
+    public void OnAttackDown()
     {
         if (currentCoolDown <= 0)
         {
@@ -350,7 +349,7 @@ public class Character2D : MonoBehaviour
             audioManager.playPushSound();
         }
     }
-    private void OnGrab()
+    public void OnGrab()
     {
         if (currentCoolDown <= 0 && direction == Vector2.zero)
         {
@@ -366,7 +365,7 @@ public class Character2D : MonoBehaviour
     }
 
     bool jumpReleased = true;
-    void OnJump()
+    public void OnJump()
     {
         jumpReleased = !jumpReleased;
         if (jumpReleased && canReleaseJump)
