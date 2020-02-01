@@ -15,6 +15,7 @@ public class Character2D : MonoBehaviour
     public float jumpSpeed = 15f;
     public float jumpDelay = 0.25f;
     private float jumpTimer;
+    [SerializeField]
     bool jump;
 
     [Header("Components")]

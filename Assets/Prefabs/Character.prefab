@@ -284,6 +284,7 @@ MonoBehaviour:
   currentCoolDown: 0
   currentActiceFrames: 0
   currentWindUp: 0
+  hitStunTime: 0
 --- !u!50 &3909555529730993988
 Rigidbody2D:
   serializedVersion: 4
