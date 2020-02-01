@@ -7,9 +7,15 @@ public class UIInteracter : MonoBehaviour
 
     private Type previousType;
 
+    private void Start()
+    {
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        UIManager.Instance.Register(playerInput);
+        gameObject.AddComponent<UIInteracter>().controlIndex = playerInput.splitScreenIndex;
+    }
+
     void OnNavigate(InputValue inputValue)
     {
-        print("Som");
         Type? type = null;
         Vector2 direction = inputValue.Get<Vector2>();
         if (direction.x > 0.3f)

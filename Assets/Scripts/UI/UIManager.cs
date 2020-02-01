@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IUIInteractable
@@ -19,6 +20,11 @@ public class UIManager : MonoBehaviour, IUIInteractable
     {
         characterSelect.gameObject.SetActive(false);
         currentInteractable = null;
+    }
+
+    public void Register(PlayerInput playerInput)
+    {
+        characterSelect.GetComponent<CharacterSelecterManager>().Register(playerInput);
     }
 
     public void PlayerWon()

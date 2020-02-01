@@ -98,11 +98,8 @@ public class Character2D : MonoBehaviour
         grabbing = false;
         hitStunTimeTimer = 0;
         audioManager = GetComponent<AudioManager>();
-        int index = transform.parent.GetComponent<PlayerInput>().splitScreenIndex;
-        gameObject.AddComponent<UIInteracter>().controlIndex = index;
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
-        UIManager.Instance.Interact(Type.Up, index);
     }
 
     void Update()

@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectors:
-  - {fileID: 1532435919}
   - {fileID: 1425107291}
+  - {fileID: 1532435919}
   - {fileID: 2016577479}
   - {fileID: 696419302}
   images:
@@ -221,6 +221,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 00ec52ecc5dedf143b6b369d94884022, type: 3}
   - {fileID: 21300000, guid: a14a6f222c8ec4145a56a726d1a77529, type: 3}
   - {fileID: 21300000, guid: f616024290ce4f9438612689a8395795, type: 3}
+  prefabs: []
 --- !u!1 &81004432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1248,7 @@ MonoBehaviour:
         m_Action: Action
         m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 3909555529730994040, guid: 03a0b8783c5ee734481e48949fa83ab7,
+  m_PlayerPrefab: {fileID: 3909555529730994040, guid: fa8f086689b45dc428df4fd366812626,
     type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
