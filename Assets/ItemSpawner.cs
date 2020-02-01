@@ -6,9 +6,9 @@ public class ItemSpawner : MonoBehaviour
 {
 
     public float spawnItemInterval;
-    float spawnWaifuInterval;
-    public float spawnItemCounter;
-    float spawnWaifuCounter;
+    public float spawnWaifuInterval;
+    float spawnItemCountdown;
+    float spawnWaifuCountdown;
 
     float itemChanceRange = 0;
     float waifuChanceRange = 0;
@@ -19,6 +19,8 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnItemCountdown = spawnItemInterval;
+        spawnWaifuCountdown = spawnWaifuInterval;
         foreach (ItemSpawn item in ItemSpawnList)
         {
             item.chanceRangeStart = itemChanceRange;
@@ -27,27 +29,27 @@ public class ItemSpawner : MonoBehaviour
         }
         foreach (ItemSpawn item in WaifuSpawnList)
         {
-            item.chanceRangeStart = itemChanceRange;
-            itemChanceRange += item.chance;
-            item.chanceRangeEnd = itemChanceRange;
+            item.chanceRangeStart = waifuChanceRange;
+            waifuChanceRange += item.chance;
+            item.chanceRangeEnd = waifuChanceRange;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnItemCounter -= Time.deltaTime;
-        spawnWaifuCounter -= Time.deltaTime;
+        spawnItemCountdown -= Time.deltaTime;
+        spawnWaifuCountdown -= Time.deltaTime;
 
-        if (spawnItemCounter <= 0)
+        if (spawnItemCountdown <= 0)
         {
             spawnItem();
-            spawnItemCounter = spawnItemInterval;
+            spawnItemCountdown = spawnItemInterval;
         }
-        if (spawnWaifuCounter <= 0)
+        if (spawnWaifuCountdown <= 0)
         {
             spawnWaifu();
-            spawnWaifuCounter = spawnWaifuInterval;
+            spawnWaifuCountdown = spawnWaifuInterval;
         }
 
     }
@@ -57,7 +59,7 @@ public class ItemSpawner : MonoBehaviour
         foreach (ItemSpawn item in ItemSpawnList)
         {
             if (randomChance > item.chanceRangeStart && randomChance < item.chanceRangeEnd)
-                Instantiate(item.itemPrefab, new Vector2(transform.position.x + Random.Range(-7f, 2f), transform.position.y+2), Quaternion.identity);
+                Instantiate(item.itemPrefab, new Vector2(transform.position.x + Random.Range(-7f, 2f), transform.position.y + 2), Quaternion.identity);
         }
     }
     void spawnWaifu()
@@ -66,7 +68,7 @@ public class ItemSpawner : MonoBehaviour
         foreach (ItemSpawn item in WaifuSpawnList)
         {
             if (randomChance > item.chanceRangeStart && randomChance < item.chanceRangeEnd)
-                Instantiate(item.itemPrefab, new Vector2(transform.position.y, transform.position.x+Random.Range(-1f, 1f)), Quaternion.identity);
+                Instantiate(item.itemPrefab, new Vector2(transform.position.x + Random.Range(-7f, 2f), transform.position.y + 2), Quaternion.identity);
         }
     }
 }

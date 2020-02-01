@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7322154448413633232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7322154448413633234}
+  - component: {fileID: 7322154448413633235}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7322154448413633234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322154448413633232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.31036675, y: 4.96, z: -1.1191406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7322154448413633235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322154448413633232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42dd95cfc85662848913f89f16c10186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnItemInterval: 10
+  spawnWaifuInterval: 5
+  ItemSpawnList:
+  - chance: 100
+    itemPrefab: {fileID: 4108674593054416512, guid: 4f40ba55f4930a64e81a91fae61101d3,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  WaifuSpawnList:
+  - chance: 15
+    itemPrefab: {fileID: 30403093871500048, guid: 0b4d710c01223b64c80efe3896b0d4ad,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1649713243710311496, guid: 82aa960a297a7214d81d086e52dd6254,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1449786721437752673, guid: b435888aafd6dd545b62fce111dda8a2,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 25
+    itemPrefab: {fileID: 7905552978276510519, guid: fe2a7f43241870a4eb731cbe48d8a59c,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 9044993495974614031, guid: 867df060e309c484188244fd05fca4cb,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 7556124155046529297, guid: 53a3aa1576dbf8642a71b198d3aabafe,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0

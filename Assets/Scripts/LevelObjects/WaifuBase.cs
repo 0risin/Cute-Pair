@@ -29,7 +29,7 @@ public class WaifuBase : MonoBehaviour
             Destroy(collision);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuArm waifuArm2) && WaifuArm2 == null)
+        if (collision.TryGetComponent(out WaifuArm1 waifuArm2) && WaifuArm2 == null)
         {
             WaifuArm2 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
@@ -41,7 +41,7 @@ public class WaifuBase : MonoBehaviour
             Destroy(collision);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuLeg waifuLeg2) && WaifuLeg2 == null)
+        if (collision.TryGetComponent(out WaifuLeg1 waifuLeg2) && WaifuLeg2 == null)
         {
             WaifuLeg2 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
