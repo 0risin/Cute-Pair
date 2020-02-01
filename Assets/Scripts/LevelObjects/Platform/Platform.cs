@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
@@ -9,12 +8,9 @@ public class Platform : MonoBehaviour
     [SerializeField] private float timeForCheckPoint;
     [SerializeField] private float waitOnCheckPoint;
 
-    private Stayer stayer;
-
     // Start is called before the first frame update
     void Start()
     {
-        stayer = GetComponentInChildren<Stayer>();
         StartCoroutine(GetEnumerator());
     }
 
@@ -43,4 +39,5 @@ public class Platform : MonoBehaviour
             }
         }
     }
+
 }
