@@ -37,6 +37,7 @@ public class Character2D : MonoBehaviour
     public Vector2 smackAngle;
     public Vector2 downSmackAngle;
     Vector2 currentForceAngle=Vector2.zero;
+    private pushObject pushObject;
 
     [Header("Cooldown")]
     public Collider2D Hitbox;
@@ -53,6 +54,10 @@ public class Character2D : MonoBehaviour
     public float currentActiceFrames;
     public float currentWindUp;
 
+    private void Start()
+    {
+        pushObject = GetComponentInChildren<pushObject>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -171,13 +176,14 @@ public class Character2D : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack") && currentCoolDown <= 0)
         {
+            //set combat values
             if (Input.GetAxis("Horizontal") != 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDown;
                 currentActiceFrames = activeFrames;
                 currentWindUp = windUp;
 
-                currentForceAngle = downSmackAngle;
+                currentForceAngle = smackAngle;
             }
             if (Input.GetAxis("Vertical") > 0 && currentCoolDown <= 0)
             {
@@ -196,12 +202,15 @@ public class Character2D : MonoBehaviour
         }
 
         //activate Hitbox after windUp
-        if (currentWindUp <= 0)
+        if (currentWindUp <= 0 && !Hitbox.enabled)
         {
             Hitbox.enabled = true;
         }
         else
+        {
             currentWindUp -= Time.deltaTime;
+            pushObject.push(currentForceAngle, facingRight);
+        }
         //count down cooldown before letting next attack
         if (currentCoolDown >= 0)
             currentCoolDown -= Time.deltaTime;
@@ -211,6 +220,7 @@ public class Character2D : MonoBehaviour
         else
         {
             Hitbox.enabled = false;
+            pushObject.ClearList();
             currentForceAngle = Vector2.zero;
         }
     }
