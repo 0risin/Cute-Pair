@@ -193,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 3909555528570871969}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a70eb04a68465e4ea30658eb2057003, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 15
   jumpDelay: 0.25
-  jump: 0
+  alreadyJumped: 0
   rb: {fileID: 3909555529730993988}
   animator: {fileID: 3909555528570871983}
   groundLayer:
