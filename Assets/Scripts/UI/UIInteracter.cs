@@ -5,8 +5,11 @@ public class UIInteracter : MonoBehaviour
 {
     public int controlIndex;
 
-    void OnMove(InputValue inputValue)
+    private Type previousType;
+
+    void OnNavigate(InputValue inputValue)
     {
+        print("Som");
         Type? type = null;
         Vector2 direction = inputValue.Get<Vector2>();
         if (direction.x > 0.3f)
@@ -17,8 +20,11 @@ public class UIInteracter : MonoBehaviour
             type = Type.Up;
         else if (direction.y < -0.3f)
             type = Type.Down;
-        if (type == null)
+        else
+            previousType = Type.Accept;
+        if (type == null || type.Value == previousType)
             return;
+        previousType = type.Value;
         UIManager.Instance.Interact(type.Value, controlIndex);
     }
 

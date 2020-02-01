@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class Character2D : MonoBehaviour
 {
@@ -99,13 +97,12 @@ public class Character2D : MonoBehaviour
         pusher = GetComponentInChildren<pushObject>();
         grabbing = false;
         hitStunTimeTimer = 0;
-<<<<<<< Updated upstream
         audioManager = GetComponent<AudioManager>();
-=======
-
-        int index = GetComponent<PlayerInput>().splitScreenIndex;
+        int index = transform.parent.GetComponent<PlayerInput>().splitScreenIndex;
         gameObject.AddComponent<UIInteracter>().controlIndex = index;
->>>>>>> Stashed changes
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+        UIManager.Instance.Interact(Type.Up, index);
     }
 
     void Update()

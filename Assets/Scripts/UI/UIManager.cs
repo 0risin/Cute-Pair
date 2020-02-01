@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IUIInteractable
 {
-    public Image mainMenuCanvas, playerSelect, playerWon;
+    public Image playerWon, characterSelect;
     private IUIInteractable currentInteractable;
 
     public static UIManager Instance { get; private set; }
@@ -11,19 +11,13 @@ public class UIManager : MonoBehaviour, IUIInteractable
     private void Start()
     {
         Instance = this;
-        mainMenuCanvas.gameObject.SetActive(true);
-        currentInteractable = mainMenuCanvas.gameObject.GetComponent<IUIInteractable>();
-    }
-
-    public void SelectPlayFromMainMenu()
-    {
-        mainMenuCanvas.gameObject.SetActive(false);
-        playerSelect.gameObject.SetActive(true);
-        currentInteractable = playerSelect.gameObject.GetComponent<IUIInteractable>();
+        currentInteractable = characterSelect.gameObject.GetComponent<IUIInteractable>();
+        characterSelect.gameObject.SetActive(true);
     }
 
     public void Play()
     {
+        characterSelect.gameObject.SetActive(false);
         currentInteractable = null;
     }
 
