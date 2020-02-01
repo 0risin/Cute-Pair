@@ -36,11 +36,12 @@ public class Character2D : MonoBehaviour
     public Vector2 upSmackAngle;
     public Vector2 smackAngle;
     public Vector2 downSmackAngle;
-    Vector2 currentForceAngle=Vector2.zero;
-    private pushObject pushObject;
+    public Vector2 CurrentForceAngle { get; private set; }
+    private pushObject pusher;
+    private bool grabbing;
 
     [Header("Cooldown")]
-    public Collider2D Hitbox;
+    public BoxCollider2D Hitbox;
     public float windUpUp;
     public float windUp;
     public float windUpDown;
@@ -54,12 +55,37 @@ public class Character2D : MonoBehaviour
     public float currentActiceFrames;
     public float currentWindUp;
 
-    private void Start()
+    [Header("Interact")]
+    private GameObject grabbed;
+    public GameObject Grabbed
     {
-        pushObject = GetComponentInChildren<pushObject>();
+        get => grabbed;
+        set
+        {
+            if (grabbed != null)
+            {
+                grabbed.GetComponent<BoxCollider2D>().enabled = true;
+                grabbed.GetComponent<Rigidbody2D>().simulated = true;
+                grabbed.transform.parent = null;
+            }
+
+            if (value != null)
+            {
+                value.transform.parent = transform;
+                value.transform.localPosition = new Vector3(0, Hitbox.size.y, 0);
+                value.GetComponent<BoxCollider2D>().enabled = false;
+                value.GetComponent<Rigidbody2D>().simulated = false;
+                grabbed = value;
+            }
+        }
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        pusher = GetComponentInChildren<pushObject>();
+        grabbing = false;
+    }
+
     void Update()
     {
         bool wasOnGround = onGround;
@@ -110,6 +136,7 @@ public class Character2D : MonoBehaviour
         jumpTimer = 0;
         StartCoroutine(JumpSqueeze(0.5f, 1.2f, 0.1f));
     }
+
     void modifyPhysics()
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
@@ -177,27 +204,35 @@ public class Character2D : MonoBehaviour
         if (Input.GetButtonDown("Attack") && currentCoolDown <= 0)
         {
             //set combat values
-            if (Input.GetAxis("Horizontal") != 0 && currentCoolDown <= 0)
-            {
-                currentCoolDown = coolDown;
-                currentActiceFrames = activeFrames;
-                currentWindUp = windUp;
-
-                currentForceAngle = smackAngle;
-            }
-            if (Input.GetAxis("Vertical") > 0 && currentCoolDown <= 0)
+            
+            if (Input.GetAxisRaw("Vertical") > 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDownUp;
                 currentActiceFrames = activeFramesUp;
                 currentWindUp = windUpUp;
-                currentForceAngle = upSmackAngle;
+                CurrentForceAngle = upSmackAngle;
             }
-            if (Input.GetAxis("Vertical") < 0 && currentCoolDown <= 0)
+            else if (Input.GetAxisRaw("Vertical") < 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDownDown;
                 currentActiceFrames = activeFramesDown;
                 currentWindUp = windUpDown;
-                currentForceAngle = downSmackAngle;
+                CurrentForceAngle = downSmackAngle;
+            }
+            else if (Input.GetAxisRaw("Horizontal") != 0 && currentCoolDown <= 0)
+            {
+                currentCoolDown = coolDown;
+                currentActiceFrames = activeFrames;
+                currentWindUp = windUp;
+                CurrentForceAngle = smackAngle;
+            }
+            else
+            {
+                currentCoolDown = coolDown;
+                currentActiceFrames = activeFrames;
+                currentWindUp = windUp;
+                CurrentForceAngle = smackAngle;
+                grabbing = true;
             }
         }
 
@@ -209,7 +244,14 @@ public class Character2D : MonoBehaviour
         else
         {
             currentWindUp -= Time.deltaTime;
-            pushObject.push(currentForceAngle, facingRight);
+            pushObject.State state;
+            if (grabbing)
+                state = pushObject.State.Grabing;
+            else if (Grabbed != null)
+                state = pushObject.State.Throwing;
+            else
+                state = pushObject.State.Pushing;
+            pusher.push(CurrentForceAngle, facingRight, state);
         }
         //count down cooldown before letting next attack
         if (currentCoolDown >= 0)
@@ -220,12 +262,9 @@ public class Character2D : MonoBehaviour
         else
         {
             Hitbox.enabled = false;
-            pushObject.ClearList();
-            currentForceAngle = Vector2.zero;
+            pusher.ClearList();
+            CurrentForceAngle = Vector2.zero;
+            grabbing = false;
         }
-    }
-    public Vector2 getCurrentForceAngle()
-    {
-        return currentForceAngle;
     }
 }
