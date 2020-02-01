@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip run, jump, land, push, grab, throwing;
+    public AudioClip run, jump, land, push, grab, throwing,stun;
     public AudioSource source;
     // Start is called before the first frame update
     void Start()
@@ -53,6 +53,14 @@ public class AudioManager : MonoBehaviour
     public void playLandSound()
     {
         source.clip = land;
+        source.Play();
+
+        source.volume = .8f;
+        Debug.Log("Playing: " + source.clip.name);
+    }
+    public void playStunSound()
+    {
+        source.clip = stun;
         source.Play();
 
         source.volume = .8f;
