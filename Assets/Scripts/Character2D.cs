@@ -19,7 +19,7 @@ public class Character2D : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public LayerMask groundLayer;
- public int playerNumber = 1;
+    public int playerNumber = 1;
     public GameObject characterHolder;
 
     [Header("Physics")]
@@ -55,6 +55,8 @@ public class Character2D : MonoBehaviour
     public float currentCoolDown;
     public float currentActiceFrames;
     public float currentWindUp;
+    public float hitStunTime;
+    private float hitStunTimeTimer;
 
 
     [Header("Interact")]
@@ -73,13 +75,13 @@ public class Character2D : MonoBehaviour
 
             if (value != null)
             {
+                value.transform.rotation = Quaternion.identity;
                 value.transform.parent = transform;
                 value.transform.localPosition = new Vector3(0, Hitbox.size.y, 0);
                 value.GetComponent<BoxCollider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
             }
-                grabbed = value;
-            
+            grabbed = value;
         }
     }
 
@@ -87,11 +89,12 @@ public class Character2D : MonoBehaviour
     {
         pusher = GetComponentInChildren<pushObject>();
         grabbing = false;
+        hitStunTimeTimer = 0;
     }
 
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical"+ playerNumber) < 0)
+        if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
             FallThroughFloor();
 
 
@@ -113,7 +116,12 @@ public class Character2D : MonoBehaviour
     }
     void FixedUpdate()
     {
-        moveCharacter(direction.x);
+        if (hitStunTimeTimer > 0)
+        {
+            hitStunTimeTimer -= Time.fixedDeltaTime;
+        }
+        else
+            moveCharacter(direction.x);
         if (jumpTimer > Time.time && onGround)
         {
             Jump();
@@ -129,6 +137,7 @@ public class Character2D : MonoBehaviour
         {
             Flip();
         }
+        float maxSpeed = grabbed == null ? this.maxSpeed : this.maxSpeed * 0.3f;
         if (Mathf.Abs(rb.velocity.x) > maxSpeed)
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
@@ -299,5 +308,10 @@ public class Character2D : MonoBehaviour
             CurrentForceAngle = Vector2.zero;
             grabbing = false;
         }
+    }
+    public void Stun()
+    {
+        hitStunTimeTimer = hitStunTime;
+        print("Stunned" + hitStunTimeTimer);
     }
 }
