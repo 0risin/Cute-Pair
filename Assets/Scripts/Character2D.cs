@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Character2D : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Character2D : MonoBehaviour
     public float jumpSpeed = 15f;
     public float jumpDelay = 0.25f;
     private float jumpTimer;
+    bool jump;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -106,12 +108,11 @@ public class Character2D : MonoBehaviour
             StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
         }
 
-        if (Input.GetButtonDown("Jump" + playerNumber))
+        if (jump)
         {
             jumpTimer = Time.time + jumpDelay;
         }
         animator.SetBool("onGround", onGround);
-        direction = new Vector2(Input.GetAxisRaw("Horizontal" + playerNumber), Input.GetAxisRaw("Vertical" + playerNumber));
         Attack();
     }
     void FixedUpdate()
@@ -243,41 +244,6 @@ public class Character2D : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Attack" + playerNumber) && currentCoolDown <= 0)
-        {
-            //set combat values
-
-            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0 && currentCoolDown <= 0)
-            {
-                currentCoolDown = coolDownUp;
-                currentActiceFrames = activeFramesUp;
-                currentWindUp = windUpUp;
-                CurrentForceAngle = upSmackAngle;
-            }
-            else if (Input.GetAxisRaw("Vertical" + playerNumber) < 0 && currentCoolDown <= 0)
-            {
-                currentCoolDown = coolDownDown;
-                currentActiceFrames = activeFramesDown;
-                currentWindUp = windUpDown;
-                CurrentForceAngle = downSmackAngle;
-            }
-            else if (Input.GetAxisRaw("Horizontal" + playerNumber) != 0 && currentCoolDown <= 0)
-            {
-                currentCoolDown = coolDown;
-                currentActiceFrames = activeFrames;
-                currentWindUp = windUp;
-                CurrentForceAngle = smackAngle;
-            }
-            else
-            {
-                currentCoolDown = coolDown;
-                currentActiceFrames = activeFrames;
-                currentWindUp = windUp;
-                CurrentForceAngle = smackAngle;
-                grabbing = true;
-            }
-        }
-
         //activate Hitbox after windUp
         if (currentWindUp <= 0 && !Hitbox.enabled)
         {
@@ -313,5 +279,58 @@ public class Character2D : MonoBehaviour
     {
         hitStunTimeTimer = hitStunTime;
         print("Stunned" + hitStunTimeTimer);
+    }
+    private void OnMove(InputValue value)
+    {
+        direction = value.Get<Vector2>();
+    }
+    private void OnAttackSide()
+    {
+
+        Debug.Log("Side");
+        if (currentCoolDown <= 0)
+        {
+            currentCoolDown = coolDown;
+            currentActiceFrames = activeFrames;
+            currentWindUp = windUp;
+            CurrentForceAngle = smackAngle;
+        };
+    }
+    private void OnAttackUp()
+    {
+        Debug.Log("Up");
+        if (currentCoolDown <= 0)
+        {
+            currentCoolDown = coolDownUp;
+            currentActiceFrames = activeFramesUp;
+            currentWindUp = windUpUp;
+            CurrentForceAngle = upSmackAngle;
+        }
+    }
+    private void OnAttackDown()
+    {
+        Debug.Log("Down");
+        if (currentCoolDown <= 0)
+        {
+            currentCoolDown = coolDownDown;
+            currentActiceFrames = activeFramesDown;
+            currentWindUp = windUpDown;
+            CurrentForceAngle = downSmackAngle;
+        }
+    }
+    private void OnGrab()
+    {
+        if (currentCoolDown <= 0 && direction== Vector2.zero)
+        {
+            currentCoolDown = coolDown;
+            currentActiceFrames = activeFrames;
+            currentWindUp = windUp;
+            CurrentForceAngle = smackAngle;
+            grabbing = true;
+        }
+    }
+    private void OnJump()
+    {
+        jump = true;
     }
 }
