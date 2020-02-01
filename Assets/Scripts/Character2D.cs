@@ -55,6 +55,7 @@ public class Character2D : MonoBehaviour
     public float currentActiceFrames;
     public float currentWindUp;
 
+
     [Header("Interact")]
     private GameObject grabbed;
     public GameObject Grabbed
@@ -204,7 +205,7 @@ public class Character2D : MonoBehaviour
         if (Input.GetButtonDown("Attack") && currentCoolDown <= 0)
         {
             //set combat values
-            
+
             if (Input.GetAxisRaw("Vertical") > 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDownUp;

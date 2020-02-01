@@ -9,13 +9,12 @@ public class Platform : MonoBehaviour
     [SerializeField] private float timeForCheckPoint;
     [SerializeField] private float waitOnCheckPoint;
 
-    private BoxCollider2D[] colliders;
-    private float timer;
+    private Stayer stayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        colliders = GetComponents<BoxCollider2D>();
+        stayer = GetComponentInChildren<Stayer>();
         StartCoroutine(GetEnumerator());
     }
 
@@ -44,23 +43,4 @@ public class Platform : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        bool ignore = collision.attachedRigidbody.velocity.y > 0;
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            Physics2D.IgnoreCollision(collision, colliders[i], ignore);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            Physics2D.IgnoreCollision(collision, colliders[i], false);
-        }
-    }
-
-
 }
