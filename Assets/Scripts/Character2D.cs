@@ -307,6 +307,7 @@ public class Character2D : MonoBehaviour
     public void Stun()
     {
         hitStunTimeTimer = hitStunTime;
+
         Grabbed = null;
     }
     private void OnMove(InputValue value)
