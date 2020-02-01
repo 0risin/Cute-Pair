@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class Character2D : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Character2D : MonoBehaviour
     public float jumpDelay = 0.25f;
     private float jumpTimer;
     [SerializeField]
-    bool jump;
+    bool canJump;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -88,6 +89,24 @@ public class Character2D : MonoBehaviour
         }
     }
 
+    // Assign input action asset here.
+    public InputActionAsset asset;
+
+    private InputAction inputAction;
+    private ButtonControl buttonControl;
+
+
+    private void Awake()
+    {
+        inputAction = asset.FindAction("Jump");
+
+        // Getting the first binding of the input action using index of 0. If we had more bindings, we would use different indices.
+        buttonControl = (ButtonControl)inputAction.controls[0];
+
+        inputAction.Enable();
+    }
+
+
     private void Start()
     {
         pusher = GetComponentInChildren<pushObject>();
@@ -97,7 +116,7 @@ public class Character2D : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical" + playerNumber) < 0)
+        if (direction.y < 0)
             FallThroughFloor();
 
 
@@ -107,9 +126,10 @@ public class Character2D : MonoBehaviour
         if (!wasOnGround && onGround)
         {
             StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
+            canJump = false;
         }
 
-        if (jump)
+        if (SetJump())
         {
             jumpTimer = Time.time + jumpDelay;
         }
@@ -330,8 +350,23 @@ public class Character2D : MonoBehaviour
             grabbing = true;
         }
     }
-    private void OnJump()
+    
+    bool SetJump()
     {
-        jump = true;
+        bool jump = false;
+        if (buttonControl.wasPressedThisFrame &&onGround)
+        {
+            jump = true;
+            canJump = true;
+
+        }
+
+        if (buttonControl.isPressed && canJump&&onGround)
+            jump = true;
+        else
+            jump = false;
+        if (buttonControl.wasReleasedThisFrame)
+            jump = false;
+        return jump;
     }
 }
