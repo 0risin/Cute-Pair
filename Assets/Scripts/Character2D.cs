@@ -95,7 +95,6 @@ public class Character2D : MonoBehaviour
     private InputAction inputAction;
     private ButtonControl buttonControl;
 
-
     private void Awake()
     {
         inputAction = asset.FindAction("Jump");
@@ -133,7 +132,7 @@ public class Character2D : MonoBehaviour
         {
             jumpTimer = Time.time + jumpDelay;
         }
-        animator.SetBool("onGround", onGround);
+        animator.SetBool("jumping", !onGround);
         Attack();
     }
     void FixedUpdate()
@@ -165,7 +164,6 @@ public class Character2D : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
         animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
-        animator.SetFloat("vertical", rb.velocity.y);
     }
     void FallThroughFloor()
     {
@@ -269,6 +267,7 @@ public class Character2D : MonoBehaviour
         if (currentWindUp <= 0 && !Hitbox.enabled)
         {
             Hitbox.enabled = true;
+            animator.SetBool("attacking", true);
         }
         else
         {
@@ -294,6 +293,7 @@ public class Character2D : MonoBehaviour
             pusher.ClearList();
             CurrentForceAngle = Vector2.zero;
             grabbing = false;
+            animator.SetBool("attacking", false);
         }
     }
     public void Stun()
@@ -341,7 +341,7 @@ public class Character2D : MonoBehaviour
     }
     private void OnGrab()
     {
-        if (currentCoolDown <= 0 && direction== Vector2.zero)
+        if (currentCoolDown <= 0 && direction == Vector2.zero)
         {
             currentCoolDown = coolDown;
             currentActiceFrames = activeFrames;
@@ -350,18 +350,18 @@ public class Character2D : MonoBehaviour
             grabbing = true;
         }
     }
-    
+
     bool SetJump()
     {
         bool jump = false;
-        if (buttonControl.wasPressedThisFrame &&onGround)
+        if (buttonControl.wasPressedThisFrame && onGround)
         {
             jump = true;
             canJump = true;
 
         }
 
-        if (buttonControl.isPressed && canJump&&onGround)
+        if (buttonControl.isPressed && canJump && onGround)
             jump = true;
         else
             jump = false;
