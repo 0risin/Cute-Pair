@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dd95cfc85662848913f89f16c10186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnItemInterval: 5
+  spawnItemInterval: 1
   spawnItemCounter: 0
   ItemSpawnList:
   - chance: 100
@@ -773,6 +773,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3424943191308480780, guid: fa4058de725a4ef4f9dfd1f14161b205,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 741510c0791614a43ac90c8b3de88eec,
+        type: 2}
     - target: {fileID: 3424943191625023195, guid: fa4058de725a4ef4f9dfd1f14161b205,
         type: 3}
       propertyPath: m_Name

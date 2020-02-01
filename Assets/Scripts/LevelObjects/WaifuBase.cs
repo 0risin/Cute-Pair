@@ -17,31 +17,31 @@ public class WaifuBase : MonoBehaviour
             Destroy(collision);
             CheckWin();
         }
-        if (collision.GetComponent<WaifuBod>() && WaifuBod == null)
+        if (collision.TryGetComponent(out WaifuBod waifubod) && WaifuBod == null)
         {
             WaifuBod = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
             CheckWin();
         }
-        if (collision.GetComponent<WaifuArm>() && WaifuArm1 == null)
+        if (collision.TryGetComponent(out WaifuArm waifuArm1) && WaifuArm1 == null)
         {
             WaifuArm1 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
             CheckWin();
         }
-        if (collision.GetComponent<WaifuArm>() && WaifuArm2 == null)
+        if (collision.TryGetComponent(out WaifuArm waifuArm2) && WaifuArm2 == null)
         {
             WaifuArm2 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
             CheckWin();
         }
-        if (collision.GetComponent<WaifuLeg>() && WaifuLeg1 == null)
+        if (collision.TryGetComponent(out WaifuLeg waifuLeg1) && WaifuLeg1 == null)
         {
             WaifuLeg1 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
             CheckWin();
         }
-        if (collision.GetComponent<WaifuLeg>() && WaifuLeg2 == null)
+        if (collision.TryGetComponent(out WaifuLeg waifuLeg2) && WaifuLeg2 == null)
         {
             WaifuLeg2 = collision.GetComponent<SpriteRenderer>().sprite;
             Destroy(collision);
