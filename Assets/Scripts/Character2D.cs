@@ -19,6 +19,7 @@ public class Character2D : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public LayerMask groundLayer;
+ public int playerNumber = 1;
     public GameObject characterHolder;
 
     [Header("Physics")]
@@ -89,7 +90,7 @@ public class Character2D : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Vertical") < 0)
+        if (Input.GetAxisRaw("Vertical"+ playerNumber) < 0)
             FallThroughFloor();
 
 
@@ -101,12 +102,12 @@ public class Character2D : MonoBehaviour
             StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump" + playerNumber))
         {
             jumpTimer = Time.time + jumpDelay;
         }
         animator.SetBool("onGround", onGround);
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        direction = new Vector2(Input.GetAxisRaw("Horizontal" + playerNumber), Input.GetAxisRaw("Vertical" + playerNumber));
         Attack();
     }
     void FixedUpdate()
@@ -151,7 +152,7 @@ public class Character2D : MonoBehaviour
                 if (cols[i].TryGetComponent(out Stayer stayer))
                 {
                     Physics2D.IgnoreCollision(stayer.transform.root.Find("Hitbox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), true);
-                    transform.position += new Vector3(0, -0.005f, 0);
+                    transform.position += new Vector3(0, -0.01f, 0);
                     run = true;
                     yield return null;
                     continue;
@@ -192,7 +193,7 @@ public class Character2D : MonoBehaviour
             {
                 rb.gravityScale = gravity * fallMultiplier;
             }
-            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump" + playerNumber))
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
@@ -232,25 +233,25 @@ public class Character2D : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Attack") && currentCoolDown <= 0)
+        if (Input.GetButtonDown("Attack" + playerNumber) && currentCoolDown <= 0)
         {
             //set combat values
 
-            if (Input.GetAxisRaw("Vertical") > 0 && currentCoolDown <= 0)
+            if (Input.GetAxisRaw("Vertical" + playerNumber) > 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDownUp;
                 currentActiceFrames = activeFramesUp;
                 currentWindUp = windUpUp;
                 CurrentForceAngle = upSmackAngle;
             }
-            else if (Input.GetAxisRaw("Vertical") < 0 && currentCoolDown <= 0)
+            else if (Input.GetAxisRaw("Vertical" + playerNumber) < 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDownDown;
                 currentActiceFrames = activeFramesDown;
                 currentWindUp = windUpDown;
                 CurrentForceAngle = downSmackAngle;
             }
-            else if (Input.GetAxisRaw("Horizontal") != 0 && currentCoolDown <= 0)
+            else if (Input.GetAxisRaw("Horizontal" + playerNumber) != 0 && currentCoolDown <= 0)
             {
                 currentCoolDown = coolDown;
                 currentActiceFrames = activeFrames;
