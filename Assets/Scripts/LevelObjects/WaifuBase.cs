@@ -7,9 +7,7 @@ public class WaifuBase : MonoBehaviour
 {
     [SerializeField]
     Sprite WaifuHead, WaifuBod, WaifuArm1, WaifuArm2, WaifuLeg1, WaifuLeg2;
-    UnityEvent winEvent;
     // Start is called before the first frame update
-    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,11 +49,16 @@ public class WaifuBase : MonoBehaviour
         }
 
     }
-    // Update is called once per frame
-   
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            WinHandler.Instance.PlayerWon(gameObject);
+    }
+
     void CheckWin()
     {
         if (WaifuHead != null && WaifuHead != null && WaifuArm1 != null && WaifuArm2 != null && WaifuLeg1 != null && WaifuLeg2 != null)
-            winEvent.Invoke();
+            WinHandler.Instance.PlayerWon(gameObject);
     }
 }
