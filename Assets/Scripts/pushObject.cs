@@ -29,7 +29,7 @@ public class pushObject : MonoBehaviour
             return;
 
         if (!facingRight)
-            pushAngle.x = pushAngle.x * -1;
+            pushAngle.x *= -1;
 
         Vector2 position = new Vector2(transform.position.x, transform.position.y);
         position = facingRight ? position + Hitbox.offset : position - Hitbox.offset;
@@ -62,7 +62,7 @@ public class pushObject : MonoBehaviour
                 }
                 alreadyHit.Add(colliders[i]);
             }
-            else if (colliders[i].TryGetComponent(out Character2D character2D) && colliders[i].gameObject != self)
+            else if (colliders[i].TryGetComponent(out Character2D character2D) && colliders[i].gameObject != self.gameObject)
             {
                 character2D.GetComponent<Rigidbody2D>().AddForce(pushAngle * 0.5f, ForceMode2D.Impulse);
                 alreadyHit.Add(colliders[i]);

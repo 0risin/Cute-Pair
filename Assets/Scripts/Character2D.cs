@@ -89,6 +89,10 @@ public class Character2D : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetAxisRaw("Vertical") < 0)
+            FallThroughFloor();
+
+
         bool wasOnGround = onGround;
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
@@ -130,6 +134,32 @@ public class Character2D : MonoBehaviour
         animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("vertical", rb.velocity.y);
     }
+    void FallThroughFloor()
+    {
+        StartCoroutine(FallThroughFloorContius());
+    }
+
+    private IEnumerator FallThroughFloorContius()
+    {
+        bool run = true;
+        while (run)
+        {
+            run = false;
+            Collider2D[] cols = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y) + Hitbox.offset, Hitbox.size, 0);
+            for (int i = 0; i < cols.Length; i++)
+            {
+                if (cols[i].TryGetComponent(out Stayer stayer))
+                {
+                    Physics2D.IgnoreCollision(stayer.transform.root.Find("Hitbox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), true);
+                    transform.position += new Vector3(0, -0.005f, 0);
+                    run = true;
+                    yield return null;
+                    continue;
+                }
+            }
+        }
+    }
+
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);
