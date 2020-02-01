@@ -151,6 +151,10 @@ public class Character2D : MonoBehaviour
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
 
+        if(horizontal != 0&&transform.rotation != Quaternion.identity && onGround)
+        {
+            rb.angularVelocity = 0;
+        }
         if ((horizontal > 0 && !facingRight) || (horizontal < 0 && facingRight))
         {
             Flip();
