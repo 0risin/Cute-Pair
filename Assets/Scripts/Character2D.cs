@@ -17,7 +17,8 @@ public class Character2D : MonoBehaviour
     public float jumpDelay = 0.25f;
     private float jumpTimer;
     [SerializeField]
-    bool canJump;
+    bool alreadyJumped = false;
+    bool canReleaseJump = false;
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -89,22 +90,7 @@ public class Character2D : MonoBehaviour
         }
     }
 
-    // Assign input action asset here.
-    public InputActionAsset asset;
 
-    private InputAction inputAction;
-    private ButtonControl buttonControl;
-
-
-    private void Awake()
-    {
-        inputAction = asset.FindAction("Jump");
-
-        // Getting the first binding of the input action using index of 0. If we had more bindings, we would use different indices.
-        buttonControl = (ButtonControl)inputAction.controls[0];
-
-        inputAction.Enable();
-    }
 
 
     private void Start()
@@ -126,12 +112,16 @@ public class Character2D : MonoBehaviour
         if (!wasOnGround && onGround)
         {
             StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
-            canJump = false;
+            if (jumpReleased)
+                alreadyJumped = false;
+            else
+                canReleaseJump = true;
         }
 
-        if (SetJump())
+        if (!jumpReleased && !alreadyJumped)
         {
             jumpTimer = Time.time + jumpDelay;
+            alreadyJumped = true;
         }
         animator.SetBool("onGround", onGround);
         Attack();
@@ -225,7 +215,7 @@ public class Character2D : MonoBehaviour
             {
                 rb.gravityScale = gravity * fallMultiplier;
             }
-            else if (rb.velocity.y > 0 && !Input.GetButton("Jump" + playerNumber))
+            else if (rb.velocity.y > 0 && jumpReleased)
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
@@ -341,7 +331,7 @@ public class Character2D : MonoBehaviour
     }
     private void OnGrab()
     {
-        if (currentCoolDown <= 0 && direction== Vector2.zero)
+        if (currentCoolDown <= 0 && direction == Vector2.zero)
         {
             currentCoolDown = coolDown;
             currentActiceFrames = activeFrames;
@@ -350,23 +340,15 @@ public class Character2D : MonoBehaviour
             grabbing = true;
         }
     }
-    
-    bool SetJump()
+
+    bool jumpReleased = true;
+    void OnJump()
     {
-        bool jump = false;
-        if (buttonControl.wasPressedThisFrame &&onGround)
+        jumpReleased = !jumpReleased;
+        if (jumpReleased && canReleaseJump)
         {
-            jump = true;
-            canJump = true;
-
+            canReleaseJump = false;
+            alreadyJumped = false;
         }
-
-        if (buttonControl.isPressed && canJump&&onGround)
-            jump = true;
-        else
-            jump = false;
-        if (buttonControl.wasReleasedThisFrame)
-            jump = false;
-        return jump;
     }
 }
