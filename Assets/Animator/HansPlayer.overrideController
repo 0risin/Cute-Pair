@@ -6,16 +6,16 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DosePlayer
+  m_Name: HansPlayer
   m_Controller: {fileID: 9100000, guid: efb4088a24c644845881c276331bfd0d, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: dd1d9be9bbcce9e47976ebf35bffe469, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e678dc43333e5ed4197f0632788a149a, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 50413463337deaa45ad998d296b28517, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 9810c01306538084b87eece463d25742, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 73d13a3d6350a7843bbba2abda5fd6be, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 4030e19c27a5f7744b8d832c03c2582d, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 78ece56f3e1750841a4118d943603acf, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 1e7ee4d22de61e248885faa6213302e4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81cfb7689a7de874daf4a721d0488932, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dd1d9be9bbcce9e47976ebf35bffe469, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 222e892c80216684da4ee88c018be189, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 50413463337deaa45ad998d296b28517, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d045e1f174434ac4982ff11c00df5315, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 73d13a3d6350a7843bbba2abda5fd6be, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 72c5059de7642984f8d7cec9566cef47, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 7f288f8d8288cce45abbf264209d9fca, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d0cff126cf3ebf54699f6ecd20bf0848, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4a32f7dccac63b047974f5cab0e277e7, type: 2}

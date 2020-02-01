@@ -103,12 +103,12 @@ public class Character2D : MonoBehaviour
 
     void Update()
     {
-        if (direction.y < 0)
+        if (direction.y < -0.4f)
             FallThroughFloor();
 
-
         bool wasOnGround = onGround;
-        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer)
+            || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
 
         if (!wasOnGround && onGround)
         {
@@ -124,18 +124,16 @@ public class Character2D : MonoBehaviour
             jumpTimer = Time.time + jumpDelay;
             alreadyJumped = true;
         }
-            animator.SetBool("jumping", !onGround);
-        animator.SetBool("onGround", onGround);
-        Attack();
+        animator.SetBool("jumping", !onGround);
+        AttackUpdate();
     }
     void FixedUpdate()
     {
         if (hitStunTimeTimer > 0)
-        {
             hitStunTimeTimer -= Time.fixedDeltaTime;
-        }
         else
             moveCharacter(direction.x);
+
         if (jumpTimer > Time.time && onGround)
         {
             Jump();
@@ -147,7 +145,7 @@ public class Character2D : MonoBehaviour
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
 
-        if(horizontal != 0&&transform.rotation != Quaternion.identity && onGround)
+        if (horizontal != 0 && transform.rotation != Quaternion.identity && onGround)
         {
             rb.angularVelocity = 0;
         }
@@ -160,15 +158,14 @@ public class Character2D : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
-        animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
-        animator.SetFloat("vertical", rb.velocity.y);
+        animator.SetFloat("horizontal", Mathf.Abs(direction.x));
     }
     void FallThroughFloor()
     {
         StartCoroutine(FallThroughFloorContius());
     }
 
-   
+
     private IEnumerator FallThroughFloorContius()
     {
         bool run = true;
@@ -262,7 +259,7 @@ public class Character2D : MonoBehaviour
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
     }
 
-    void Attack()
+    void AttackUpdate()
     {
         //activate Hitbox after windUp
         if (currentWindUp <= 0 && !Hitbox.enabled)
@@ -276,8 +273,7 @@ public class Character2D : MonoBehaviour
             pushObject.State state;
             if (grabbing)
             {
-                state = pushObject.State.Grabing; 
-
+                state = pushObject.State.Grabing;
             }
             else if (Grabbed != null)
             {
@@ -288,8 +284,8 @@ public class Character2D : MonoBehaviour
             else
             {
                 state = pushObject.State.Pushing;
-            pusher.push(CurrentForceAngle, facingRight, state);
             }
+            pusher.push(CurrentForceAngle, facingRight, state);
 
         }
         //count down cooldown before letting next attack
@@ -364,7 +360,6 @@ public class Character2D : MonoBehaviour
             grabbing = true;
 
             audioManager.playGrabSound();
-
         }
     }
 
