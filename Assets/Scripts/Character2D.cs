@@ -99,7 +99,13 @@ public class Character2D : MonoBehaviour
         pusher = GetComponentInChildren<pushObject>();
         grabbing = false;
         hitStunTimeTimer = 0;
+<<<<<<< Updated upstream
         audioManager = GetComponent<AudioManager>();
+=======
+
+        int index = GetComponent<PlayerInput>().splitScreenIndex;
+        gameObject.AddComponent<UIInteracter>().controlIndex = index;
+>>>>>>> Stashed changes
     }
 
     void Update()
