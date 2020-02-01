@@ -66,6 +66,7 @@ public class pushObject : MonoBehaviour
             {
                 character2D.GetComponent<Rigidbody2D>().AddForce(pushAngle * 0.5f, ForceMode2D.Impulse);
                 alreadyHit.Add(colliders[i]);
+                character2D.Stun();
                 // stun
             }
         }

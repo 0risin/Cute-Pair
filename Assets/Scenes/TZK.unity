@@ -411,6 +411,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292349670745334435, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: animationCurve.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3292349670745334447, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -466,6 +501,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901950048660163401, guid: efed758296c3d2c4dbfc2314e9a8bfe1,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 032a832c84ba8824fb66848ca1b1e36d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efed758296c3d2c4dbfc2314e9a8bfe1, type: 3}
 --- !u!1 &373358494
@@ -524,6 +564,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerNumber: 1
   characterHolder: {fileID: 373358494}
   maxSpeed: 7
   linearDrag: 4
