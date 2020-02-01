@@ -6,7 +6,8 @@ using UnityEngine.InputSystem.Controls;
 
 public class Character2D : MonoBehaviour
 {
-
+    [SerializeField]
+    AudioManager audioManager;
     [Header("Horizontal Movement")]
     public float moveSpeed = 10f;
     public Vector2 direction;
@@ -98,6 +99,7 @@ public class Character2D : MonoBehaviour
         pusher = GetComponentInChildren<pushObject>();
         grabbing = false;
         hitStunTimeTimer = 0;
+        audioManager = GetComponent<AudioManager>();
     }
 
     void Update()
@@ -123,6 +125,7 @@ public class Character2D : MonoBehaviour
             jumpTimer = Time.time + jumpDelay;
             alreadyJumped = true;
         }
+            animator.SetBool("jumping", !onGround);
         animator.SetBool("onGround", onGround);
         Attack();
     }
@@ -162,6 +165,7 @@ public class Character2D : MonoBehaviour
         StartCoroutine(FallThroughFloorContius());
     }
 
+   
     private IEnumerator FallThroughFloorContius()
     {
         bool run = true;
@@ -230,6 +234,8 @@ public class Character2D : MonoBehaviour
     {
         Vector3 originalSize = Vector3.one;
         Vector3 newSize = new Vector3(xSqueeze, ySqueeze, originalSize.z);
+
+        audioManager.playLandSound();
         float t = 0f;
         while (t <= 1.0)
         {
@@ -259,18 +265,29 @@ public class Character2D : MonoBehaviour
         if (currentWindUp <= 0 && !Hitbox.enabled)
         {
             Hitbox.enabled = true;
+            animator.SetBool("attacking", true);
         }
         else
         {
             currentWindUp -= Time.deltaTime;
             pushObject.State state;
             if (grabbing)
-                state = pushObject.State.Grabing;
+            {
+                state = pushObject.State.Grabing; 
+
+            }
             else if (Grabbed != null)
+            {
                 state = pushObject.State.Throwing;
+
+                audioManager.playThrowingSound();
+            }
             else
+            {
                 state = pushObject.State.Pushing;
             pusher.push(CurrentForceAngle, facingRight, state);
+            }
+
         }
         //count down cooldown before letting next attack
         if (currentCoolDown >= 0)
@@ -284,12 +301,12 @@ public class Character2D : MonoBehaviour
             pusher.ClearList();
             CurrentForceAngle = Vector2.zero;
             grabbing = false;
+            animator.SetBool("attacking", false);
         }
     }
     public void Stun()
     {
         hitStunTimeTimer = hitStunTime;
-        print("Stunned" + hitStunTimeTimer);
     }
     private void OnMove(InputValue value)
     {
@@ -297,36 +314,38 @@ public class Character2D : MonoBehaviour
     }
     private void OnAttackSide()
     {
-
-        Debug.Log("Side");
         if (currentCoolDown <= 0)
         {
             currentCoolDown = coolDown;
             currentActiceFrames = activeFrames;
             currentWindUp = windUp;
             CurrentForceAngle = smackAngle;
+
+            audioManager.playPushSound();
         };
     }
     private void OnAttackUp()
     {
-        Debug.Log("Up");
         if (currentCoolDown <= 0)
         {
             currentCoolDown = coolDownUp;
             currentActiceFrames = activeFramesUp;
             currentWindUp = windUpUp;
             CurrentForceAngle = upSmackAngle;
+
+            audioManager.playPushSound();
         }
     }
     private void OnAttackDown()
     {
-        Debug.Log("Down");
         if (currentCoolDown <= 0)
         {
             currentCoolDown = coolDownDown;
             currentActiceFrames = activeFramesDown;
             currentWindUp = windUpDown;
             CurrentForceAngle = downSmackAngle;
+
+            audioManager.playPushSound();
         }
     }
     private void OnGrab()
@@ -338,6 +357,9 @@ public class Character2D : MonoBehaviour
             currentWindUp = windUp;
             CurrentForceAngle = smackAngle;
             grabbing = true;
+
+            audioManager.playGrabSound();
+
         }
     }
 
@@ -347,6 +369,8 @@ public class Character2D : MonoBehaviour
         jumpReleased = !jumpReleased;
         if (jumpReleased && canReleaseJump)
         {
+
+            audioManager.playJumpSound();
             canReleaseJump = false;
             alreadyJumped = false;
         }
