@@ -37,12 +37,21 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
                     numberReady++;
             }
         }
-        if (numberActive > 1 && numberActive == numberReady)
+        if (numberActive <= 1 || numberActive != numberReady)
+        {
+            return;
+        }
+        else
         {
             for (int i = 0; i < selectors.Length; i++)
             {
-                Instantiate(prefabs[i], players[i].transform);
+                if (!selectors[i].gameObject.activeInHierarchy)
+                    break;
+                print(selectors[i].Selection);
+                Instantiate(prefabs[selectors[i].Selection], players[i].transform);
+                players[i].SwitchCurrentActionMap("Player");
             }
         }
+        UIManager.Instance.Play();
     }
 }

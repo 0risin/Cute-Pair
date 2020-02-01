@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CharacterSelector : MonoBehaviour, IUIInteractable
 {
     private CharacterSelecterManager characterSelecter;
-    private int selection;
+    public int Selection { get; private set; }
     private Image image;
     public bool Ready { get; private set; }
 
@@ -17,16 +17,16 @@ public class CharacterSelector : MonoBehaviour, IUIInteractable
         switch (type)
         {
             case Type.Left:
-                selection++;
-                if (selection == characterSelecter.images.Length)
-                    selection = 0;
-                image.sprite = characterSelecter.images[selection];
+                Selection++;
+                if (Selection == characterSelecter.images.Length)
+                    Selection = 0;
+                image.sprite = characterSelecter.images[Selection];
                 break;
             case Type.Right:
-                selection--;
-                if (selection == -1)
-                    selection = characterSelecter.images.Length - 1;
-                image.sprite = characterSelecter.images[selection];
+                Selection--;
+                if (Selection == -1)
+                    Selection = characterSelecter.images.Length - 1;
+                image.sprite = characterSelecter.images[Selection];
                 break;
             case Type.Accept:
                 Ready = true;
