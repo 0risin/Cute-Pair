@@ -77,8 +77,9 @@ public class Character2D : MonoBehaviour
                 value.transform.localPosition = new Vector3(0, Hitbox.size.y, 0);
                 value.GetComponent<BoxCollider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
-                grabbed = value;
             }
+                grabbed = value;
+            
         }
     }
 
