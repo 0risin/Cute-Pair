@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6498580991485928390}
   - component: {fileID: 6519883850961242621}
   - component: {fileID: 4005797307134785418}
-  - component: {fileID: 6717600617188072016}
   - component: {fileID: 1040504584772823883}
+  - component: {fileID: 3771643858224602167}
   m_Layer: 0
   m_Name: WaifuHansLeg
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f63a79d1b8e718b43b5b59d8937426bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4bd050c092d6b574eb4c2a7530175b0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,24 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &6717600617188072016
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9044993495974614031}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -3.055, y: 0}
-  - {x: 3.055, y: 0}
 --- !u!114 &1040504584772823883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +117,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34420cf953358cf418a0fb8ed3a0ce0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &3771643858224602167
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044993495974614031}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.11, y: 6.91}
+    newSize: {x: 6.11, y: 6.91}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.49499997, y: -2.635}
+      - {x: 0.445, y: -2.5149999}
+      - {x: 0.42499998, y: -2.225}
+      - {x: 0.53499997, y: -1.905}
+      - {x: 0.575, y: -1.755}
+      - {x: 0.66499996, y: -1.535}
+      - {x: 0.78499997, y: -1.305}
+      - {x: 0.78499997, y: -1.235}
+      - {x: 0.715, y: -1.135}
+      - {x: 0.635, y: -1.175}
+      - {x: 0.555, y: -1.275}
+      - {x: 0.59499997, y: -1.035}
+      - {x: 0.66499996, y: -0.905}
+      - {x: 0.72499996, y: -0.79499996}
+      - {x: 0.72499996, y: -0.635}
+      - {x: 0.635, y: -0.575}
+      - {x: 0.635, y: -0.445}
+      - {x: 0.66499996, y: -0.114999995}
+      - {x: 0.585, y: -0.035}
+      - {x: 0.59499997, y: 0.114999995}
+      - {x: 0.585, y: 0.24499999}
+      - {x: 0.545, y: 0.49499997}
+      - {x: 0.505, y: 0.505}
+      - {x: 0.415, y: 0.505}
+      - {x: 0.21499999, y: 0.325}
+      - {x: 0.13499999, y: 0.185}
+      - {x: 0.13499999, y: 0.155}
+      - {x: 0.195, y: 0.024999999}
+      - {x: 0.265, y: -0.065}
+      - {x: 0.105, y: -0.16499999}
+      - {x: 0.085, y: -0.375}
+      - {x: 0.095, y: -0.655}
+      - {x: 0.105, y: -0.85499996}
+      - {x: 0.114999995, y: -0.995}
+      - {x: 0.13499999, y: -1.175}
+      - {x: 0.095, y: -1.355}
+      - {x: 0.114999995, y: -1.615}
+      - {x: 0.114999995, y: -1.8549999}
+      - {x: 0.065, y: -2.395}
+      - {x: 0.035, y: -2.7549999}
+      - {x: 0.035, y: -3.245}
+      - {x: 0.074999996, y: -3.3049998}
+      - {x: 0.255, y: -3.3049998}
+      - {x: 0.49499997, y: -3.085}
+      - {x: 0.515, y: -2.975}
+      - {x: 0.515, y: -2.705}

@@ -52,7 +52,7 @@ MonoBehaviour:
     chanceRangeStart: 0
     chanceRangeEnd: 0
   WaifuSpawnList:
-  - chance: 15
+  - chance: 10
     itemPrefab: {fileID: 30403093871500048, guid: 0b4d710c01223b64c80efe3896b0d4ad,
       type: 3}
     chanceRangeStart: 0
@@ -72,13 +72,123 @@ MonoBehaviour:
       type: 3}
     chanceRangeStart: 0
     chanceRangeEnd: 0
-  - chance: 15
+  - chance: 20
     itemPrefab: {fileID: 9044993495974614031, guid: 867df060e309c484188244fd05fca4cb,
       type: 3}
     chanceRangeStart: 0
     chanceRangeEnd: 0
-  - chance: 15
+  - chance: 20
     itemPrefab: {fileID: 7556124155046529297, guid: 53a3aa1576dbf8642a71b198d3aabafe,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 10
+    itemPrefab: {fileID: 30403093871500048, guid: 17e9d22a74f5ee242a5de3759c260360,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 25
+    itemPrefab: {fileID: 7905552978276510519, guid: 3651af7c3800eca47a4819159d9d2dbd,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1649713243710311496, guid: e67b0a939e728434080606fe14914743,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1449786721437752673, guid: eb75f00d883d65147812400e6341a114,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 9044993495974614031, guid: 5d79c994fbebb18449de9ea6b1e7f0ae,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 7556124155046529297, guid: 84504249a5ed547478dd6ee269d45f8c,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 7905552978276510519, guid: d1eb02a6b1c184a41aaaaf8c0f79cd33,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 7905552978276510519, guid: 6a2121ff32c6bfa4c9ccdb7f7c177a7e,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 10
+    itemPrefab: {fileID: 30403093871500048, guid: 1e9601aea2ac7784d9930fe70ff29ac3,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1649713243710311496, guid: 9c6e69419a1306b4c92433b2972381f0,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1449786721437752673, guid: c0e914b4b7b86ea47bd914b596fb36b8,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 25
+    itemPrefab: {fileID: 7905552978276510519, guid: 218b85b9de223464f9d7a0ba8001eefe,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 9044993495974614031, guid: 7e3a5808045bf6946b231eb660f15528,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 7556124155046529297, guid: 5e471c1a59edc6e41ad10a808fb36981,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 7905552978276510519, guid: 290caac774a04f841b5c5f41d2af5206,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 25
+    itemPrefab: {fileID: 7905552978276510519, guid: a3de310cd92633e429c3ea616667cac6,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 9044993495974614031, guid: ca15986883f3bc247af60d3f7f1ce358,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 20
+    itemPrefab: {fileID: 7556124155046529297, guid: 53bc87c91c66a764f91606ecc57649bc,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 10
+    itemPrefab: {fileID: 30403093871500048, guid: 1c15fa3a2c12d18498158f515fd6b264,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1449786721437752673, guid: 90f3c613d6bb1ef41b3e38f8a8829208,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 1649713243710311496, guid: 4c2d99273b337944dbe052e1ebf23fe2,
+      type: 3}
+    chanceRangeStart: 0
+    chanceRangeEnd: 0
+  - chance: 15
+    itemPrefab: {fileID: 7905552978276510519, guid: fe13e1bf00619b942aff8dcd7175e1b7,
       type: 3}
     chanceRangeStart: 0
     chanceRangeEnd: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7905552978276510523}
   - component: {fileID: 7905552978276510516}
   - component: {fileID: 7905552978276510517}
-  - component: {fileID: 7905552978276510518}
+  - component: {fileID: 2619721582402500917}
   m_Layer: 0
   m_Name: WaifuHansBod
   m_TagString: Untagged
@@ -117,8 +117,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &7905552978276510518
-EdgeCollider2D:
+--- !u!60 &2619721582402500917
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,7 +131,50 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.11, y: 6.91}
+    newSize: {x: 6.11, y: 6.91}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -3.055, y: 0}
-  - {x: 3.055, y: 0}
+    m_Paths:
+    - - {x: 0.545, y: 0.48499998}
+      - {x: 0.545, y: 0.53499997}
+      - {x: 0.515, y: 0.655}
+      - {x: 0.33499998, y: 1.005}
+      - {x: 0.355, y: 1.255}
+      - {x: 0.525, y: 1.475}
+      - {x: 0.60499996, y: 1.745}
+      - {x: 0.625, y: 1.8149999}
+      - {x: 0.625, y: 1.9549999}
+      - {x: 0.575, y: 2.0249999}
+      - {x: 0.445, y: 2.055}
+      - {x: 0.185, y: 2.055}
+      - {x: 0.155, y: 2.165}
+      - {x: -0.074999996, y: 2.165}
+      - {x: -0.114999995, y: 2.145}
+      - {x: -0.145, y: 2.075}
+      - {x: -0.39499998, y: 2.055}
+      - {x: -0.53499997, y: 2.0149999}
+      - {x: -0.59499997, y: 1.9749999}
+      - {x: -0.59499997, y: 1.8149999}
+      - {x: -0.515, y: 1.7149999}
+      - {x: -0.445, y: 1.6949999}
+      - {x: -0.465, y: 1.615}
+      - {x: -0.465, y: 1.505}
+      - {x: -0.385, y: 1.355}
+      - {x: -0.305, y: 1.225}
+      - {x: -0.315, y: 1.015}
+      - {x: -0.405, y: 0.835}
+      - {x: -0.525, y: 0.53499997}
+      - {x: -0.515, y: 0.475}
+      - {x: -0.33499998, y: 0.325}
+      - {x: -0.095, y: 0.074999996}
+      - {x: 0.114999995, y: 0.074999996}
+      - {x: 0.185, y: 0.13499999}
+      - {x: 0.285, y: 0.255}
+      - {x: 0.39499998, y: 0.385}

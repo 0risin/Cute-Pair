@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6002302247119773000}
   - component: {fileID: 8483857020360007470}
   m_Layer: 0
-  m_Name: WaifuHansLeg1
+  m_Name: WaifuBopLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4bd050c092d6b574eb4c2a7530175b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98d6886ea3554294d8a89463fb430c57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

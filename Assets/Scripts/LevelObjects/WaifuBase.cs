@@ -6,45 +6,52 @@ using UnityEngine.Events;
 public class WaifuBase : MonoBehaviour
 {
     [SerializeField]
-    Sprite WaifuHead, WaifuBod, WaifuArm1, WaifuArm2, WaifuLeg1, WaifuLeg2;
+    SpriteRenderer WaifuHead, WaifuBod, WaifuWings, WaifuArm1, WaifuArm2, WaifuLeg1, WaifuLeg2;
     // Start is called before the first frame update
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<WaifuHead>() && WaifuHead == null)
+        Debug.Log("Trigger");
+        if (collision.GetComponent<WaifuHead>() && WaifuHead.sprite == null)
         {
-            WaifuHead = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuHead.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuBod waifubod) && WaifuBod == null)
+        if (collision.TryGetComponent(out WaifuBod waifubod) && WaifuBod.sprite == null)
         {
-            WaifuBod = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuBod.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuArm waifuArm1) && WaifuArm1 == null)
+        if (collision.TryGetComponent(out WaifuArm waifuArm1) && WaifuArm1.sprite == null)
         {
-            WaifuArm1 = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuArm1.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuArm1 waifuArm2) && WaifuArm2 == null)
+        if (collision.TryGetComponent(out WaifuArm1 waifuArm2) && WaifuArm2.sprite == null)
         {
-            WaifuArm2 = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuArm2.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuLeg waifuLeg1) && WaifuLeg1 == null)
+        if (collision.TryGetComponent(out WaifuLeg waifuLeg1) && WaifuLeg1.sprite == null)
         {
-            WaifuLeg1 = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuLeg1.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
-        if (collision.TryGetComponent(out WaifuLeg1 waifuLeg2) && WaifuLeg2 == null)
+        if (collision.TryGetComponent(out WaifuLeg1 waifuLeg2) && WaifuLeg2.sprite == null)
         {
-            WaifuLeg2 = collision.GetComponent<SpriteRenderer>().sprite;
-            Destroy(collision);
+            WaifuLeg2.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
+            CheckWin();
+        }
+        if (collision.TryGetComponent(out WaifuWings waifuWings) && WaifuWings.sprite == null)
+        {
+            WaifuWings.sprite = collision.GetComponent<SpriteRenderer>().sprite;
+            Destroy(collision.gameObject);
             CheckWin();
         }
 
@@ -52,13 +59,11 @@ public class WaifuBase : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            WinHandler.Instance.PlayerWon(gameObject);
     }
 
     void CheckWin()
     {
-        if (WaifuHead != null && WaifuHead != null && WaifuArm1 != null && WaifuArm2 != null && WaifuLeg1 != null && WaifuLeg2 != null)
+        if (WaifuHead.sprite != null && WaifuHead.sprite != null && WaifuArm1.sprite != null && WaifuArm2.sprite != null && WaifuLeg1.sprite != null && WaifuLeg2.sprite != null)
             WinHandler.Instance.PlayerWon(gameObject);
     }
 }

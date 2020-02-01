@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1649713243710313396}
   - component: {fileID: 1649713243710313397}
   - component: {fileID: 1649713243710311499}
-  - component: {fileID: 5066067825020104848}
+  - component: {fileID: 5628360452062715594}
   m_Layer: 0
   m_Name: WaifuHansArm
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98dc84ac9ee62fd43b2c66cccb6007fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ff91b1f6fda52c4db544cb162c02861, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6da5ae637bcd6d458cf08b6d5107d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &5066067825020104848
-CapsuleCollider2D:
+--- !u!60 &5628360452062715594
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +130,54 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.07, y: 1.52}
-  m_Size: {x: 2.11, y: 0.96}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.11, y: 6.91}
+    newSize: {x: 6.11, y: 6.91}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.065, y: 1.135}
+      - {x: 2.0049999, y: 1.3349999}
+      - {x: 1.9649999, y: 1.385}
+      - {x: 1.7249999, y: 1.365}
+      - {x: 1.635, y: 1.425}
+      - {x: 1.5949999, y: 1.405}
+      - {x: 1.155, y: 1.655}
+      - {x: 0.875, y: 1.865}
+      - {x: 0.775, y: 1.985}
+      - {x: 0.885, y: 2.175}
+      - {x: 0.945, y: 2.315}
+      - {x: 0.84499997, y: 2.425}
+      - {x: 0.79499996, y: 2.425}
+      - {x: 0.745, y: 2.405}
+      - {x: 0.765, y: 2.365}
+      - {x: 0.545, y: 2.145}
+      - {x: 0.465, y: 2.175}
+      - {x: 0.285, y: 2.145}
+      - {x: 0.185, y: 2.055}
+      - {x: 0.185, y: 1.875}
+      - {x: 0.225, y: 1.805}
+      - {x: 0.385, y: 1.745}
+      - {x: 0.48499998, y: 1.755}
+      - {x: 0.53499997, y: 1.5949999}
+      - {x: 0.695, y: 1.475}
+      - {x: 0.91499996, y: 1.375}
+      - {x: 0.79499996, y: 1.105}
+      - {x: 0.895, y: 1.035}
+      - {x: 0.98499995, y: 1.0749999}
+      - {x: 1.125, y: 1.3249999}
+      - {x: 1.265, y: 1.1949999}
+      - {x: 1.435, y: 1.115}
+      - {x: 1.525, y: 1.115}
+      - {x: 1.625, y: 0.995}
+      - {x: 1.805, y: 0.945}
+      - {x: 2.095, y: 0.945}
+      - {x: 2.155, y: 0.965}
+      - {x: 2.175, y: 1.015}
+      - {x: 2.175, y: 1.0649999}
