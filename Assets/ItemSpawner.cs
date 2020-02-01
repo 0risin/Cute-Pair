@@ -57,7 +57,7 @@ public class ItemSpawner : MonoBehaviour
         foreach (ItemSpawn item in ItemSpawnList)
         {
             if (randomChance > item.chanceRangeStart && randomChance < item.chanceRangeEnd)
-                Instantiate(item.itemPrefab, new Vector2(Screen.height, Random.Range((100), (Screen.width - 100))), Quaternion.identity);
+                Instantiate(item.itemPrefab, new Vector2(transform.position.x + Random.Range(-7f, 2f), transform.position.y+2), Quaternion.identity);
         }
     }
     void spawnWaifu()
@@ -66,7 +66,7 @@ public class ItemSpawner : MonoBehaviour
         foreach (ItemSpawn item in WaifuSpawnList)
         {
             if (randomChance > item.chanceRangeStart && randomChance < item.chanceRangeEnd)
-                Instantiate(item.itemPrefab, new Vector2(Screen.height, Random.Range((100), (Screen.width - 100))), Quaternion.identity);
+                Instantiate(item.itemPrefab, new Vector2(transform.position.y, transform.position.x+Random.Range(-1f, 1f)), Quaternion.identity);
         }
     }
 }
