@@ -36,6 +36,7 @@ public class Character2D : MonoBehaviour
     public bool onGround = false;
     public float groundLength = 0.6f;
     public Vector3 colliderOffset;
+    private BoxCollider2D ownHitbox;
 
     [Header("Hitboxes")]
     public Vector2 upSmackAngle;
@@ -72,7 +73,7 @@ public class Character2D : MonoBehaviour
         {
             if (grabbed != null)
             {
-                grabbed.GetComponent<BoxCollider2D>().enabled = true;
+                grabbed.GetComponent<Collider2D>().enabled = true;
                 grabbed.GetComponent<Rigidbody2D>().simulated = true;
                 grabbed.transform.parent = null;
             }
@@ -81,8 +82,9 @@ public class Character2D : MonoBehaviour
             {
                 value.transform.rotation = Quaternion.identity;
                 value.transform.parent = transform;
-                value.transform.localPosition = new Vector3(0, Hitbox.size.y, 0);
-                value.GetComponent<BoxCollider2D>().enabled = false;
+                Vector3 position = value.GetComponent<Collider2D>().offset;
+                value.transform.position = new Vector3(0, ownHitbox.size.y * 1.1f, 0) - position;
+                value.GetComponent<Collider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
             }
             grabbed = value;
@@ -93,6 +95,7 @@ public class Character2D : MonoBehaviour
     {
         transform.parent.GetComponent<PassthroughPlayer>().character2D = this;
         pusher = GetComponentInChildren<pushObject>();
+        ownHitbox = GetComponent<BoxCollider2D>();
         grabbing = false;
         hitStunTimeTimer = 0;
         audioManager = GetComponent<AudioManager>();
@@ -132,7 +135,10 @@ public class Character2D : MonoBehaviour
         if (hitStunTimeTimer > 0)
             hitStunTimeTimer -= Time.fixedDeltaTime;
         else
+        {
+            animator.SetBool("hurt", false);
             moveCharacter(direction.x);
+        }
 
         if (jumpTimer > Time.time && onGround)
         {
@@ -306,7 +312,7 @@ public class Character2D : MonoBehaviour
     public void Stun()
     {
         hitStunTimeTimer = hitStunTime;
-
+        animator.SetBool("hurt", true);
         Grabbed = null;
     }
     public void OnMove(InputValue value)

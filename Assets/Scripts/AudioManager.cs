@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -16,7 +14,6 @@ public class AudioManager : MonoBehaviour
         source.clip = run;
         source.Play();
         source.volume = 1f;
-        Debug.Log("Playing: " + source.clip.name);  
     }
     public void playJumpSound()
     {
@@ -24,7 +21,6 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .8f;
-        Debug.Log("Playing: " + source.clip.name);
     }
     public void playPushSound()
     {
@@ -32,7 +28,6 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .9f;
-        Debug.Log("Playing: " + source.clip.name);
     }
     public void playGrabSound()
     {
@@ -40,7 +35,6 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .8f;
-        Debug.Log("Playing: " + source.clip.name);
     }
     public void playThrowingSound()
     {
@@ -48,7 +42,6 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .7f;
-        Debug.Log("Playing: " + source.clip.name);
     }
     public void playLandSound()
     {
@@ -56,7 +49,6 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .8f;
-        Debug.Log("Playing: " + source.clip.name);
     }
     public void playStunSound()
     {
@@ -64,6 +56,5 @@ public class AudioManager : MonoBehaviour
         source.Play();
 
         source.volume = .8f;
-        Debug.Log("Playing: " + source.clip.name);
     }
 }

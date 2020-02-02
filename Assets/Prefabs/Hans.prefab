@@ -68,7 +68,7 @@ MonoBehaviour:
   fallMultiplier: 5
   onGround: 0
   groundLength: 0.6
-  colliderOffset: {x: 0, y: 0.05, z: 0}
+  colliderOffset: {x: 0, y: 0.18, z: 0}
   upSmackAngle: {x: 2, y: 9}
   smackAngle: {x: 7, y: 1}
   downSmackAngle: {x: 3, y: -6}
