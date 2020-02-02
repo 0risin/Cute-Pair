@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7905552978276510522}
   - component: {fileID: 7905552978276510523}
-  - component: {fileID: 7905552978276510516}
   - component: {fileID: 7905552978276510517}
   - component: {fileID: 2619721582402500917}
+  - component: {fileID: -420140163973331869}
   m_Layer: 0
   m_Name: WaifuSirWings
   m_TagString: Untagged
@@ -84,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7905552978276510516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7905552978276510519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2673cd450257aa448d476d14db5cd48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7905552978276510517
 Rigidbody2D:
   serializedVersion: 4
@@ -178,3 +166,16 @@ PolygonCollider2D:
       - {x: 0.185, y: 0.13499999}
       - {x: 0.285, y: 0.255}
       - {x: 0.39499998, y: 0.385}
+--- !u!114 &-420140163973331869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905552978276510519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83662c682f953474f92bd3acf8e4b506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 20

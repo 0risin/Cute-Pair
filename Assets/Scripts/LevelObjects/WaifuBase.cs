@@ -59,7 +59,7 @@ public class WaifuBase : MonoBehaviour
 
     void CheckWin()
     {
-        if (WaifuHead.sprite != null && WaifuHead.sprite != null && WaifuArm1.sprite != null && WaifuArm2.sprite != null && WaifuLeg1.sprite != null && WaifuLeg2.sprite != null)
+        if (WaifuHead.sprite != null && WaifuHead.sprite != null && WaifuArm1.sprite != null && WaifuArm2.sprite != null && WaifuLeg1.sprite != null && WaifuLeg2.sprite != null && WaifuWings.sprite != null)
             WinHandler.Instance.PlayerWon(gameObject, robotType);
     }
 }

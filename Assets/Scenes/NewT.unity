@@ -1033,14 +1033,6 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Action
         m_Flags: 0
-      - m_Name: 
-        m_Id: 2ab5879e-f2a4-47ff-ae78-cfcb7ff5ef39
-        m_Path: <Keyboard>/enter
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Action
-        m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 3909555529730994040, guid: fa8f086689b45dc428df4fd366812626,
     type: 3}
@@ -1320,7 +1312,7 @@ Transform:
   m_GameObject: {fileID: 757987563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.13, y: 0.13, z: 0}
-  m_LocalScale: {x: 1.0302693, y: 1.0302693, z: -20}
+  m_LocalScale: {x: 1.2688302, y: 1.2688302, z: -24.631039}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -1627,6 +1619,16 @@ PrefabInstance:
       propertyPath: bases.Array.data[3]
       value: 
       objectReference: {fileID: 931790370}
+    - target: {fileID: 3770573214458495392, guid: 85c8133f7aefbfb4095480f82a652100,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 298434820}
+    - target: {fileID: 3770573214458495392, guid: 85c8133f7aefbfb4095480f82a652100,
+        type: 3}
+      propertyPath: winMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f2c80d12eddce741bdfad57f03978a1, type: 3}
     - target: {fileID: 3770573214458495393, guid: 85c8133f7aefbfb4095480f82a652100,
         type: 3}
       propertyPath: m_Name
@@ -2501,11 +2503,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base1
       objectReference: {fileID: 0}
-    - target: {fileID: 6601151812121064568, guid: 65cba82ba68313640b8e1dde5210e1fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6601151812121064573, guid: 65cba82ba68313640b8e1dde5210e1fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2560,21 +2557,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6601151812121064573, guid: 65cba82ba68313640b8e1dde5210e1fa,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6601151812121064573, guid: 65cba82ba68313640b8e1dde5210e1fa,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6601151812121064573, guid: 65cba82ba68313640b8e1dde5210e1fa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65cba82ba68313640b8e1dde5210e1fa, type: 3}

@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour, IUIInteractable
 {
     public Image playerWon, characterSelect, background, selectImage;
     private IUIInteractable currentInteractable;
+    public AudioSource source;
+    public AudioClip winMusic;
 
     public static UIManager Instance { get; private set; }
 
@@ -36,6 +38,9 @@ public class UIManager : MonoBehaviour, IUIInteractable
 
     public void PlayerWon(RobotType type)
     {
+        source.Stop();
+        source.clip = winMusic;
+        source.Play();
         playerWon.gameObject.SetActive(true);
         currentInteractable = playerWon.gameObject.GetComponent<IUIInteractable>();
         GetComponentInChildren<PlayerWinsUI>().Display(type);

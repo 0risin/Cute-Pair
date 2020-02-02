@@ -63,7 +63,7 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
     private IEnumerator StartGame()
     {
         Play(gameStart);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         UIManager.Instance.Play();
     }
 
@@ -81,8 +81,7 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
                     numberReady++;
             }
         }
-        //if (numberActive <= 1 || numberActive != numberReady)
-        if (numberActive < 1 || numberActive != numberReady)
+        if (numberActive <= 1 || numberActive != numberReady)
         {
             return;
         }
