@@ -8,6 +8,12 @@ public class FallThroughHelper : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.TryGetComponent<Item>(out Item i))
+        {
+            Destroy(i.gameObject);
+
+            return;
+        }
         if (collision.TryGetComponent(out Rigidbody2D body))
         {
             body.position += add;
