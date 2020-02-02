@@ -7,11 +7,18 @@ public class Platform : MonoBehaviour
     [SerializeField] Vector2[] checkPoints;
     [SerializeField] private float timeForCheckPoint;
     [SerializeField] private float waitOnCheckPoint;
+    [SerializeField] private Transform fromTrans;
+    [SerializeField] private Transform toTrans;
 
     // Start is called before the first frame update
     void Start()
     {
+        toTrans.SetParent(null);
+        fromTrans.SetParent(null);
         StartCoroutine(GetEnumerator());
+        checkPoints = new Vector2[2];
+        checkPoints[0] = new Vector2(fromTrans.position.x, fromTrans.position.y);
+        checkPoints[1] = new Vector2(toTrans.position.x, toTrans.position.y);
     }
 
     private IEnumerator GetEnumerator()
