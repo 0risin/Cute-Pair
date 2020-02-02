@@ -76,6 +76,8 @@ public class Character2D : MonoBehaviour
                 grabbed.GetComponent<Collider2D>().enabled = true;
                 grabbed.GetComponent<Rigidbody2D>().simulated = true;
                 grabbed.transform.parent = null;
+
+                value.GetComponent<Item>().handleDestruction(0, true);
             }
 
             if (value != null)
@@ -87,6 +89,7 @@ public class Character2D : MonoBehaviour
                 value.transform.position = transform.position;
                 value.GetComponent<Collider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
+                value.GetComponent<Item>().handleDestruction(5, false);
             }
             grabbed = value;
         }

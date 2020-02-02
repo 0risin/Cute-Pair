@@ -4,9 +4,4 @@ using UnityEngine;
 
 public class WaifuWings : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 }
