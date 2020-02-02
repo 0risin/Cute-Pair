@@ -32,10 +32,11 @@ public class UIManager : MonoBehaviour, IUIInteractable
         characterSelect.GetComponent<CharacterSelecterManager>().Register(playerInput);
     }
 
-    public void PlayerWon()
+    public void PlayerWon(RobotType type)
     {
         playerWon.gameObject.SetActive(true);
         currentInteractable = playerWon.gameObject.GetComponent<IUIInteractable>();
+        GetComponentInChildren<PlayerWinsUI>().Display(type);
     }
 
     public void Interact(Type type, int index)

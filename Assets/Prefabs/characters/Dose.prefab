@@ -163,6 +163,7 @@ MonoBehaviour:
   currentActiceFrames: 0
   currentWindUp: 0
   hitStunTime: 0
+  robotType: 1
 --- !u!61 &2878693735533261834
 BoxCollider2D:
   m_ObjectHideFlags: 0

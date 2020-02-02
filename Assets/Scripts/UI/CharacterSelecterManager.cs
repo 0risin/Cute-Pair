@@ -98,8 +98,10 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
 
         for (int i = 0; i < players.Count; i++)
         {
-            players[i].GetComponentInChildren<Character2D>().Color = colors[i];
+            Character2D character = players[i].GetComponentInChildren<Character2D>();
+            character.Color = colors[i];
             bases[i].SetActive(true);
+            bases[i].GetComponentInChildren<WaifuBase>().robotType = character.robotType;
             bases[i].GetComponentInChildren<Light2D>().color = colors[i];
         }
         starting = true;

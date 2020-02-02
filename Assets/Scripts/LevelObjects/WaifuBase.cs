@@ -4,6 +4,7 @@ public class WaifuBase : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer WaifuHead, WaifuBod, WaifuWings, WaifuArm1, WaifuArm2, WaifuLeg1, WaifuLeg2;
+    public RobotType robotType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -59,6 +60,6 @@ public class WaifuBase : MonoBehaviour
     void CheckWin()
     {
         if (WaifuHead.sprite != null && WaifuHead.sprite != null && WaifuArm1.sprite != null && WaifuArm2.sprite != null && WaifuLeg1.sprite != null && WaifuLeg2.sprite != null)
-            WinHandler.Instance.PlayerWon(gameObject);
+            WinHandler.Instance.PlayerWon(gameObject, robotType);
     }
 }
