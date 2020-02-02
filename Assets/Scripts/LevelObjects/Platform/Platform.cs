@@ -18,6 +18,7 @@ public class Platform : MonoBehaviour
         StartCoroutine(GetEnumerator());
         checkPoints = new Vector2[2];
         checkPoints[0] = new Vector2(fromTrans.position.x, fromTrans.position.y);
+        transform.position = fromTrans.position;
         checkPoints[1] = new Vector2(toTrans.position.x, toTrans.position.y);
     }
 

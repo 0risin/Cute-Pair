@@ -1364,18 +1364,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7734b3184e257a84a9b8def8f3205dd3, type: 3}
---- !u!114 &1299866993 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2789406984976157068, guid: 85c8133f7aefbfb4095480f82a652100,
-    type: 3}
-  m_PrefabInstance: {fileID: 3770573212601927589}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1302444534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1931,11 +1919,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1349217979333912344, guid: 85c8133f7aefbfb4095480f82a652100,
-        type: 3}
-      propertyPath: m_Name
-      value: SelectImage
-      objectReference: {fileID: 0}
     - target: {fileID: 3770573212615470109, guid: 85c8133f7aefbfb4095480f82a652100,
         type: 3}
       propertyPath: bases.Array.data[0]
@@ -1956,11 +1939,6 @@ PrefabInstance:
       propertyPath: bases.Array.data[3]
       value: 
       objectReference: {fileID: 1842262817}
-    - target: {fileID: 3770573214458495392, guid: 85c8133f7aefbfb4095480f82a652100,
-        type: 3}
-      propertyPath: selectImage
-      value: 
-      objectReference: {fileID: 1299866993}
     - target: {fileID: 3770573214458495393, guid: 85c8133f7aefbfb4095480f82a652100,
         type: 3}
       propertyPath: m_Name

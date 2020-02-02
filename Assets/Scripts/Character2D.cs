@@ -150,7 +150,10 @@ public class Character2D : MonoBehaviour
     void FixedUpdate()
     {
         if (hitStunTimeTimer > 0)
+        {
             hitStunTimeTimer -= Time.fixedDeltaTime;
+            return;
+        }
         else
         {
             animator.SetBool("hurt", false);
@@ -339,8 +342,6 @@ public class Character2D : MonoBehaviour
     {
         if (currentCoolDown <= 0)
         {
-            print("Attacking");
-
             currentCoolDown = coolDown;
             currentActiceFrames = activeFrames;
             currentWindUp = windUp;
