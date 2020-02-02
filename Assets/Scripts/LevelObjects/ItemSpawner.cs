@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-
     public float spawnItemInterval;
     public float spawnWaifuInterval;
     float spawnItemCountdown;
@@ -16,9 +15,12 @@ public class ItemSpawner : MonoBehaviour
     public List<ItemSpawn> ItemSpawnList;
     public List<ItemSpawn> WaifuSpawnList;
 
+    public static ItemSpawner Instance { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         spawnItemCountdown = spawnItemInterval;
         spawnWaifuCountdown = spawnWaifuInterval;
         foreach (ItemSpawn item in ItemSpawnList)

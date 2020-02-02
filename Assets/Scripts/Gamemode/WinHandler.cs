@@ -36,5 +36,6 @@ public class WinHandler : MonoBehaviour
             yield return null;
         }
         UIManager.Instance.PlayerWon();
+        ItemSpawner.Instance.gameObject.SetActive(false);
     }
 }

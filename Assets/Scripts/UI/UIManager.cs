@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour, IUIInteractable
     private void Start()
     {
         Instance = this;
+        ItemSpawner.Instance.gameObject.SetActive(false);
         currentInteractable = characterSelect.gameObject.GetComponent<IUIInteractable>();
         characterSelect.gameObject.SetActive(true);
         background = transform.Find("Image").GetComponent<Image>();
@@ -19,9 +20,11 @@ public class UIManager : MonoBehaviour, IUIInteractable
 
     public void Play()
     {
+        GetComponent<AudioSource>().Play();
         characterSelect.gameObject.SetActive(false);
         currentInteractable = null;
         background.gameObject.SetActive(false);
+        ItemSpawner.Instance.gameObject.SetActive(true);
     }  
 
     public void Register(PlayerInput playerInput)

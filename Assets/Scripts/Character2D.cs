@@ -39,9 +39,9 @@ public class Character2D : MonoBehaviour
     public float groundLength = 0.6f;
     public Vector3 colliderOffset;
     private BoxCollider2D ownHitbox;
-    int grnd = 1 << LayerMask.NameToLayer("Ground");
-    int itm = 1 << LayerMask.NameToLayer("Item");
-    int chr = 1 << LayerMask.NameToLayer("Player");
+    int grnd = 1;
+    int itm = 1;
+    int chr = 1;
 
     [Header("Hitboxes")]
     public Vector2 upSmackAngle;
@@ -103,6 +103,9 @@ public class Character2D : MonoBehaviour
 
     private void Start()
     {
+        grnd = 1 << LayerMask.NameToLayer("Ground");
+        itm = 1 << LayerMask.NameToLayer("Item");
+        chr = 1 << LayerMask.NameToLayer("Player");
         mask = grnd | itm | chr;
         groundLayer = mask;
         transform.parent.GetComponent<PassthroughPlayer>().character2D = this;
@@ -334,6 +337,8 @@ public class Character2D : MonoBehaviour
     {
         if (currentCoolDown <= 0)
         {
+            print("Attacking");
+
             currentCoolDown = coolDown;
             currentActiceFrames = activeFrames;
             currentWindUp = windUp;
