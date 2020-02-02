@@ -47,7 +47,6 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
             {
                 if (!selectors[i].gameObject.activeInHierarchy)
                     break;
-                print(selectors[i].Selection);
                 Instantiate(prefabs[selectors[i].Selection], players[i].transform);
                 players[i].SwitchCurrentActionMap("Player");
             }

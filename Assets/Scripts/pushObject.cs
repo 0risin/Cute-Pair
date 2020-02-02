@@ -21,13 +21,10 @@ public class pushObject : MonoBehaviour
         Hitbox = GetComponent<BoxCollider2D>();
         alreadyHit = new List<Collider2D>();
         self = transform.parent.GetComponent<Character2D>();
-        print("self gotten" + (self == null));
     }
 
     public void push(Vector2 pushAngle, bool facingRight, State state)
     {
-        print((self == null) + " is null");
-
         if (ignoreNextPush)
             return;
 
