@@ -8,7 +8,6 @@ public class pushObject : MonoBehaviour
     BoxCollider2D Hitbox;
     List<Collider2D> alreadyHit;
     Character2D self;
-
     public enum State
     {
         Grabing, Pushing, Throwing

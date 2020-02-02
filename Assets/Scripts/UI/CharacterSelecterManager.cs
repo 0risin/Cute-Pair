@@ -81,7 +81,8 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
                     numberReady++;
             }
         }
-        if (numberActive <= 1 || numberActive != numberReady)
+        //if (numberActive <= 1 || numberActive != numberReady)
+        if (numberActive < 1 || numberActive != numberReady)
         {
             return;
         }
