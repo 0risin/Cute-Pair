@@ -79,11 +79,12 @@ public class Character2D : MonoBehaviour
                 grabbed.GetComponent<Rigidbody2D>().simulated = true;
                 grabbed.transform.parent = null;
 
-                value.GetComponent<Item>().handleDestruction(0, true);
+                grabbed.GetComponent<Item>().handleDestruction(5, false);
             }
 
             if (value != null)
             {
+                value.GetComponent<Item>().handleDestruction(0, true);
                 value.transform.rotation = Quaternion.identity;
                 value.transform.parent = transform;
                 Vector3 offset = value.GetComponent<Collider2D>().offset;
@@ -91,7 +92,6 @@ public class Character2D : MonoBehaviour
                 value.transform.position = transform.position;
                 value.GetComponent<Collider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
-                value.GetComponent<Item>().handleDestruction(5, false);
             }
             grabbed = value;
         }
@@ -291,7 +291,6 @@ public class Character2D : MonoBehaviour
             {
                 state = pushObject.State.Throwing;
 
-                audioManager.playThrowingSound();
             }
             else
             {
@@ -334,7 +333,11 @@ public class Character2D : MonoBehaviour
             currentWindUp = windUp;
             CurrentForceAngle = smackAngle;
 
+            if (Grabbed != null)
+                audioManager.playThrowingSound();
+            else
             audioManager.playPushSound();
+
         };
     }
     public void OnAttackUp()
@@ -345,8 +348,10 @@ public class Character2D : MonoBehaviour
             currentActiceFrames = activeFramesUp;
             currentWindUp = windUpUp;
             CurrentForceAngle = upSmackAngle;
-
-            audioManager.playPushSound();
+            if (Grabbed != null)
+                audioManager.playThrowingSound();
+            else
+                audioManager.playPushSound();
         }
     }
     public void OnAttackDown()
@@ -357,8 +362,10 @@ public class Character2D : MonoBehaviour
             currentActiceFrames = activeFramesDown;
             currentWindUp = windUpDown;
             CurrentForceAngle = downSmackAngle;
-
-            audioManager.playPushSound();
+            if (Grabbed != null)
+                audioManager.playThrowingSound();
+            else
+                audioManager.playPushSound();
         }
     }
     public void OnGrab()
