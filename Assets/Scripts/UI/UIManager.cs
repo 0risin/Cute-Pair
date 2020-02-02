@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IUIInteractable
 {
-    public Image playerWon, characterSelect, background;
+    public Image playerWon, characterSelect, background, selectImage;
     private IUIInteractable currentInteractable;
 
     public static UIManager Instance { get; private set; }
@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour, IUIInteractable
         currentInteractable = characterSelect.gameObject.GetComponent<IUIInteractable>();
         characterSelect.gameObject.SetActive(true);
         background = transform.Find("Image").GetComponent<Image>();
+        selectImage.gameObject.SetActive(true);
     }
 
     public void Play()
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour, IUIInteractable
     public void Register(PlayerInput playerInput)
     {
         characterSelect.GetComponent<CharacterSelecterManager>().Register(playerInput);
+        selectImage.gameObject.SetActive(false);
     }
 
     public void PlayerWon(RobotType type)
