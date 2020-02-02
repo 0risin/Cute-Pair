@@ -69,6 +69,7 @@ public class Character2D : MonoBehaviour
     private float hitStunTimeTimer;
 
     public Color Color { set => GetComponentInChildren<Light2D>().color = value; }
+    public RobotType robotType;
 
     [Header("Interact")]
     private GameObject grabbed;

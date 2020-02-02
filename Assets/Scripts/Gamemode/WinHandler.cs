@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinHandler : MonoBehaviour
 {
     public static WinHandler Instance { get; private set; }
+    public string sceneToLoadAfterWin;
 
     private void Start()
     {
         Instance = this;
     }
 
-    public void PlayerWon(GameObject waifu)
+    public void PlayerWon(GameObject waifu, RobotType robotType)
     {
-        StartCoroutine(ZoomToWaifu(waifu));
+        StartCoroutine(ZoomToWaifu(waifu, robotType));
     }
 
-    private IEnumerator ZoomToWaifu(GameObject waifu)
+    private IEnumerator ZoomToWaifu(GameObject waifu, RobotType type)
     {
         Camera camera = Camera.main;
         Vector3 oldPosition = camera.transform.position;
@@ -35,7 +37,11 @@ public class WinHandler : MonoBehaviour
             camera.orthographicSize = Mathf.Lerp(oldSize, newSize, percent);
             yield return null;
         }
-        UIManager.Instance.PlayerWon();
+        UIManager.Instance.PlayerWon(type);
         ItemSpawner.Instance.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(sceneToLoadAfterWin);
     }
+
+
 }
