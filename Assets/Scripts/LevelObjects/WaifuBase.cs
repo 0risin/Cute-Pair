@@ -11,7 +11,6 @@ public class WaifuBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
         if (collision.GetComponent<WaifuHead>() && WaifuHead.sprite == null)
         {
             WaifuHead.sprite = collision.GetComponent<SpriteRenderer>().sprite;

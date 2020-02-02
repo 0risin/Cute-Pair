@@ -82,8 +82,9 @@ public class Character2D : MonoBehaviour
             {
                 value.transform.rotation = Quaternion.identity;
                 value.transform.parent = transform;
-                Vector3 position = value.GetComponent<Collider2D>().offset;
-                value.transform.position = new Vector3(0, ownHitbox.size.y * 1.1f, 0) - position;
+                Vector3 offset = value.GetComponent<Collider2D>().offset;
+                value.transform.position += offset;
+                value.transform.position = transform.position;
                 value.GetComponent<Collider2D>().enabled = false;
                 value.GetComponent<Rigidbody2D>().simulated = false;
             }

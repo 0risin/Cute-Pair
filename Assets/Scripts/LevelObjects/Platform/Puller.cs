@@ -11,8 +11,12 @@ public class Puller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool ignore = collision.attachedRigidbody.velocity.y > 0;
-        Physics2D.IgnoreCollision(collision, parentCollider, ignore);
+        Rigidbody2D rigidBody = collision.attachedRigidbody;
+        if (rigidBody != null)
+        {
+            bool ignore = collision.attachedRigidbody.velocity.y > 0;
+            Physics2D.IgnoreCollision(collision, parentCollider, ignore);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

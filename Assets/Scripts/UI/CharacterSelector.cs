@@ -29,6 +29,7 @@ public class CharacterSelector : MonoBehaviour, IUIInteractable
                 image.sprite = characterSelecter.images[Selection];
                 break;
             case Type.Accept:
+                transform.GetChild(0).gameObject.SetActive(false);
                 Ready = true;
                 break;
             default:

@@ -738,6 +738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterToMake
       objectReference: {fileID: 0}
+    - target: {fileID: 3909555529730994040, guid: fa8f086689b45dc428df4fd366812626,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3909555529730994041, guid: fa8f086689b45dc428df4fd366812626,
         type: 3}
       propertyPath: m_DefaultActionMap

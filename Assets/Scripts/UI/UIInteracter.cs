@@ -12,6 +12,7 @@ public class UIInteracter : MonoBehaviour
         PlayerInput playerInput = GetComponent<PlayerInput>();
         UIManager.Instance.Register(playerInput);
         gameObject.GetComponent<UIInteracter>().controlIndex = playerInput.playerIndex;
+        UIManager.Instance.Interact(Type.Right, controlIndex);
     }
 
     void OnNavigate(InputValue inputValue)
