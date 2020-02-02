@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
 
 public class Character2D : MonoBehaviour
@@ -62,7 +63,8 @@ public class Character2D : MonoBehaviour
     public float currentWindUp;
     public float hitStunTime;
     private float hitStunTimeTimer;
-
+    
+    public Color Color { set => GetComponentInChildren<Light2D>().color = value; }
 
     [Header("Interact")]
     private GameObject grabbed;

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class WaifuBase : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer WaifuHead, WaifuBod, WaifuWings, WaifuArm1, WaifuArm2, WaifuLeg1, WaifuLeg2;
-    // Start is called before the first frame update
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

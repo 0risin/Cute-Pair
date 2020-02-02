@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
 
 public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
@@ -7,6 +8,8 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
     public CharacterSelector[] selectors;
     public Sprite[] images;
     public GameObject[] prefabs;
+    public Color[] colors;
+    public GameObject[] bases;
     private List<PlayerInput> players;
 
     private void Start()
@@ -51,6 +54,14 @@ public class CharacterSelecterManager : MonoBehaviour, IUIInteractable
                 players[i].SwitchCurrentActionMap("Player");
             }
         }
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].GetComponentInChildren<Character2D>().Color = colors[i];
+            bases[i].SetActive(true);
+            bases[i].GetComponentInChildren<Light2D>().color = colors[i];
+        }
+
         UIManager.Instance.Play();
     }
 }
