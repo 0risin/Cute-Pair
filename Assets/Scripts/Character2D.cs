@@ -83,8 +83,9 @@ public class Character2D : MonoBehaviour
                 grabbed.GetComponent<Collider2D>().enabled = true;
                 grabbed.GetComponent<Rigidbody2D>().simulated = true;
                 grabbed.transform.parent = null;
-
-                grabbed.GetComponent<Item>().handleDestruction(5, false);
+                Item item = grabbed.GetComponent<Item>();
+                item.handleDestruction(5, false);
+                item.thrown(ownHitbox);
             }
 
             if (value != null)
