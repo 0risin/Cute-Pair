@@ -16,4 +16,5 @@ public class AnimatorPlaySound : MonoBehaviour
     {
         audioManager.playRunSound();
     }
+
 }

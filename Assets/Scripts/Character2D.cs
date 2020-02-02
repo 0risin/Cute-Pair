@@ -25,6 +25,7 @@ public class Character2D : MonoBehaviour
     public Animator animator;
     public LayerMask groundLayer;
     public int playerNumber = 1;
+    int mask;
     public GameObject characterHolder;
 
     [Header("Physics")]
@@ -38,6 +39,9 @@ public class Character2D : MonoBehaviour
     public float groundLength = 0.6f;
     public Vector3 colliderOffset;
     private BoxCollider2D ownHitbox;
+    int grnd = 1 << LayerMask.NameToLayer("Ground");
+    int itm = 1 << LayerMask.NameToLayer("Item");
+    int chr = 1 << LayerMask.NameToLayer("Player");
 
     [Header("Hitboxes")]
     public Vector2 upSmackAngle;
@@ -63,7 +67,7 @@ public class Character2D : MonoBehaviour
     public float currentWindUp;
     public float hitStunTime;
     private float hitStunTimeTimer;
-    
+
     public Color Color { set => GetComponentInChildren<Light2D>().color = value; }
 
     [Header("Interact")]
@@ -99,6 +103,8 @@ public class Character2D : MonoBehaviour
 
     private void Start()
     {
+        mask = grnd | itm | chr;
+        groundLayer = mask;
         transform.parent.GetComponent<PassthroughPlayer>().character2D = this;
         pusher = GetComponentInChildren<pushObject>();
         ownHitbox = GetComponent<BoxCollider2D>();
@@ -336,7 +342,7 @@ public class Character2D : MonoBehaviour
             if (Grabbed != null)
                 audioManager.playThrowingSound();
             else
-            audioManager.playPushSound();
+                audioManager.playPushSound();
 
         };
     }
