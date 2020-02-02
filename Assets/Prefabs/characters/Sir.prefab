@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 9
   direction: {x: 0, y: 0}
-  jumpSpeed: 15
+  jumpSpeed: 8
   jumpDelay: 0.25
   alreadyJumped: 0
   rb: {fileID: 0}
@@ -146,9 +146,9 @@ MonoBehaviour:
   onGround: 0
   groundLength: 0.6
   colliderOffset: {x: 0, y: 0.2, z: 0}
-  upSmackAngle: {x: 2, y: 9}
-  smackAngle: {x: 7, y: 1}
-  downSmackAngle: {x: 3, y: -6}
+  upSmackAngle: {x: 2, y: 13}
+  smackAngle: {x: 10, y: 1}
+  downSmackAngle: {x: 2, y: -8}
   Hitbox: {fileID: 8031951068979549771}
   windUpUp: 0
   windUp: 0.08

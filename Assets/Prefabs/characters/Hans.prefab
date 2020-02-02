@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 7
   direction: {x: 0, y: 0}
-  jumpSpeed: 15
+  jumpSpeed: 12
   jumpDelay: 0.25
   alreadyJumped: 0
   rb: {fileID: 0}
@@ -147,8 +147,8 @@ MonoBehaviour:
   onGround: 0
   groundLength: 0.6
   colliderOffset: {x: 0, y: 0.35, z: 0}
-  upSmackAngle: {x: 2, y: 9}
-  smackAngle: {x: 7, y: 1}
+  upSmackAngle: {x: 2.5, y: 10}
+  smackAngle: {x: 8, y: 2}
   downSmackAngle: {x: 3, y: -6}
   Hitbox: {fileID: 8031951068979549771}
   windUpUp: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   currentCoolDown: 0
   currentActiceFrames: 0
   currentWindUp: 0
-  hitStunTime: 0
+  hitStunTime: 2.5
   robotType: 2
 --- !u!61 &2878693735533261834
 BoxCollider2D:
