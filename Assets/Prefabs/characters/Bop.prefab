@@ -47,7 +47,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.57
   m_Color: {r: 0.99215686, g: 0.7842602, b: 0.22745097, a: 1}
-  m_Intensity: 1.7
+  m_Intensity: 1
   m_LightVolumeOpacity: 0.172
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -164,6 +164,7 @@ MonoBehaviour:
   currentActiceFrames: 0
   currentWindUp: 0
   hitStunTime: 0
+  robotType: 0
 --- !u!61 &2878693735533261834
 BoxCollider2D:
   m_ObjectHideFlags: 0

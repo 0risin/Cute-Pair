@@ -199,7 +199,7 @@ public class Character2D : MonoBehaviour
             {
                 if (cols[i].TryGetComponent(out Stayer stayer))
                 {
-                    Physics2D.IgnoreCollision(stayer.transform.root.Find("Hitbox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), true);
+                    Physics2D.IgnoreCollision(stayer.transform.parent.Find("Hitbox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), true);
                     transform.position += new Vector3(0, -0.01f, 0);
                     run = true;
                     yield return null;

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash.unity
     guid: b6290d7c4a0b7fe4c80352c262ae027d
   - enabled: 1
+    path: Assets/Scenes/NewT.unity
+    guid: 28558ef0ccb9f5049aad3e5e6dbe48ca
+  - enabled: 1
     path: Assets/Scenes/NewRhyth.unity
     guid: 697b1f5bbdf286d42bbcd30db6379778
   - enabled: 1
